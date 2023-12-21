@@ -1,4 +1,4 @@
-import React from "react";
+import React, {ChangeEvent, FormEvent} from "react";
 import formConfig from './formConfig.ts';
 import Input from "./Input/index.tsx";
 import {useSelector, useDispatch} from "react-redux";
@@ -12,12 +12,12 @@ const ExpenseForm: React.FC = () => {
     const values = useSelector(selectSaisieValues)
     const categories = useSelector(selectCategories)
 
-    const handleChange = (e) => {
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         const {name, value} = e.target
         dispatch(changeValue({name, value}))
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         dispatch(addExpense({...values}))
     }

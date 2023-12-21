@@ -1,0 +1,53 @@
+.categoryForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 15px;
+  width: 85%;
+  position: relative;
+
+  & .title {
+    color: var(--text-dark);
+    text-transform: uppercase;
+    font-size: 1.5rem;
+  }
+
+  & .input {
+    width: 98%;
+    height: 35px;
+    font-size: 1rem;
+    text-transform: uppercase;
+  }
+
+  & .submit {
+    width: 100%;
+    padding: 5px 8px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    font-weight: var(--bold-text);
+    letter-spacing: 2px;
+    color: var(--text-light);
+    background: var(--primary-linear);
+    border: none;
+    border-radius: 15px;
+    position: relative;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all .3s ease-in;
+
+    &:hover {
+      letter-spacing: 4px;
+    }
+  }
+
+  & .error {
+    color: #ED5F6B;
+    font-size: 1.4rem;
+    font-weight: var(--bold-text);
+    letter-spacing: 1px;
+    position: absolute;
+    bottom: -25%;
+  }
+}

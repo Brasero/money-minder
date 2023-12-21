@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Dancing+Script:wght@400;700&display=swap');
+
+:root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+
+    background-color: #242424;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+
+    --primary-font: 'Abel', sans-serif;
+    --secondary-font: 'Dancing Script', cursive;
+
+    --thin-text: 300;
+    --regular-text: 400;
+    --bold-text: 700;
+
+    --text-dark: #242424;
+    --text-light: #ffffff;
+
+    --bg-light: #e3e3e3;
+    --bg-dark: #242424;
+
+    --primary-linear: linear-gradient(45deg, #ED5F6B 0%, #F2A465 100%);
+    --secondary-linear: linear-gradient(45deg, #1E9292 0%, #70D7C7 100%);
+    --dark-linear: linear-gradient(45deg, #54576A 0%, #232436 100%);
+}
+
+html {
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+
+body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+}
+
+#root {
+    margin: 0 auto;
+    padding: 0 0 80px;
+    background: url("./assets/Background.svg") no-repeat center center fixed #e3e3e3;
+    background-size: cover;
+}

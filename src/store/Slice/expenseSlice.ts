@@ -1,6 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
 
-interface IExpense {
+export interface IExpense {
     label: string;
     amount: string;
     id: number;

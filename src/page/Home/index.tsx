@@ -2,7 +2,6 @@ import {motion} from "framer-motion";
 import HomeHeader from "./HomeHeader.tsx";
 import './Home.scss';
 import Tall from "../../components/HomeComponents/Metrics/Tall";
-import Bank from "../../components/HomeComponents/Metrics/Bank";
 import Budget from "../../components/HomeComponents/Metrics/Budget";
 import Outgoing from "../../components/HomeComponents/Metrics/Outgoing";
 import {pageVariant} from "../../utils/animation";

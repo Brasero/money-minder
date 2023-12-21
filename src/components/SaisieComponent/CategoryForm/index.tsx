@@ -3,11 +3,17 @@ import './categoryForm.scss';
 import {useDispatch} from "react-redux";
 import {addCategory} from "../../../store/Slice/categorySlice.ts";
 
+
+interface ICategorySaisie {
+    name: string;
+    value: string;
+    budget: number | undefined
+}
 const CategoryForm: React.FC = () => {
 
     const dispatch = useDispatch()
 
-    const initialState = {
+    const initialState: ICategorySaisie = {
         name: '',
         value: '',
         budget: undefined
@@ -17,12 +23,12 @@ const CategoryForm: React.FC = () => {
     const [message, setMessage] = useState('')
 
 
-    const removeMessage = (time) => {
+    const removeMessage = (time: number) => {
         setTimeout(() => {
             setMessage('')
         }, time)
     }
-    const handleChange = (e: ChangeEvent<HTMLElement>) => {
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         const {name, value} = e.target
         const newObject = {
             ...state,
@@ -35,7 +41,7 @@ const CategoryForm: React.FC = () => {
         setState(newObject)
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         if (state.name === '') {
             setMessage('Merci de saisir un nom.')

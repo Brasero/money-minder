@@ -14,7 +14,7 @@ const Outgoing: React.FC = () => {
     const expenses = useSelector(selectExpenses)
     const categories = useSelector(selectCategories)
 
-    const reals = expenses.reduce((acc, current) => {
+    const reals = expenses.reduce((acc: never[], current) => {
         if (acc[current.category]){
             acc[current.category] += current.amount
         } else {
@@ -26,7 +26,7 @@ const Outgoing: React.FC = () => {
     console.log(reals)
 
 
-    const data: ISpend[] = categories.reduce((acc, current) => {
+    const data: ISpend[] = categories.reduce((acc , current) => {
         acc.push({
             cat: current.name,
             budget: current.budget || 0,
@@ -36,8 +36,8 @@ const Outgoing: React.FC = () => {
     }, [])
 
     const total = data.reduce((acc, current) => {
-        acc.budget += parseFloat(current.budget)
-        acc.real += parseFloat(current.real)
+        acc.budget += parseFloat(String(current.budget))
+        acc.real += parseFloat(String(current.real))
         return acc
     }, {budget: 0, real: 0})
 

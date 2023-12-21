@@ -16,12 +16,6 @@ interface IDonutChartData {
 
 const DonutChart: React.FC<DonutChartProps> = ({total, category}: DonutChartProps) => {
 
-    const datan = [
-        {angle: 45, label: 'Alimentation', subLabel: `${(45/100)*total}€`},
-        {angle: 25, label: 'Transport', subLabel: `${(25/100)*total}€`},
-        {angle: 30, label: 'Loisir', subLabel: `${(30/100)*total}€`},
-    ]
-
     const data: IDonutChartData[] = category.reduce((acc: IDonutChartData[], current: ICategory) => {
         if (!current.budget) {
             return acc

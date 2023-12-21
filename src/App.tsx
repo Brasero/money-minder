@@ -15,9 +15,9 @@ function App() {
       <div id={"page-container"}>
           <AnimatePresence presenceAffectsLayout={false} mode={"sync"}>
               <Routes location={location} key={location.pathname}>
-                  <Route path={"/"} element={<Home />}/>
-                  <Route path={"/saisie"} element={<Saisie />}/>
-                  <Route path={"/profile"} element={<div>Profile</div>}/>
+                  <Route path={"/money-minder"} element={<Home />}/>
+                  <Route path={"/money-minder/saisie"} element={<Saisie />}/>
+                  <Route path={"/money-minder/profile"} element={<div>Profile</div>}/>
               </Routes>
           </AnimatePresence>
       </div>

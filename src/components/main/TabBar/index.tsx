@@ -29,13 +29,13 @@ const TabBar = () => {
         <AnimatePresence>
             <motion.ul variants={liVariants} initial={'hidden'} animate={'visible'}>
                 <motion.li whileHover={hoverAnimation}>
-                    <NavLink to={"/"}>Home</NavLink>
+                    <NavLink to={"/money-minder"}>Home</NavLink>
                 </motion.li>
                 <motion.li whileHover={hoverAnimation}>
-                    <NavLink to={"/saisie"}>Données</NavLink>
+                    <NavLink to={"/money-minder/saisie"}>Données</NavLink>
                 </motion.li>
                 <motion.li whileHover={hoverAnimation}>
-                    <NavLink to={"/profile"}>Profile</NavLink>
+                    <NavLink to={"/money-minder/profile"}>Profile</NavLink>
                 </motion.li>
             </motion.ul>
         </AnimatePresence>

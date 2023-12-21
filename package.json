@@ -1,8 +1,9 @@
 {
-  "name": "money-minder-ai",
+  "name": "money-minder",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://brasero.github.io/money-minder",
   "scripts": {
     "start": "vite --host",
     "dev": "vite",

@@ -43,7 +43,7 @@ const revenuSlice = createSlice({
             state.error = ''
         },
         changeRevenuValue(state, action) {
-            state.value[action.payload.name] = action.payload.name === "amount" ? normalizeNumber(action.payload.value):action.payload.value
+            state.value[action.payload.name] = action.payload.value
             state.error = ""
         }
     }

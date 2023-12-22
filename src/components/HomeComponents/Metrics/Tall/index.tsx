@@ -2,7 +2,6 @@ import './tall.scss';
 import {useSelector} from "react-redux";
 import {selectCategories, selectExpenses} from "../../../../store/Selector";
 import {displayNumber} from "../../../../utils/utils.ts";
-import revenu from "../../../../page/Revenu";
 
 const Tall = () => {
     const categories = useSelector(selectCategories)
@@ -17,7 +16,7 @@ const Tall = () => {
 
     const leftBudget: number = budget - total;
     const percentSpent: number = (total*100) / budget;
-    const isMinus = (number) => {
+    const isMinus = (number: number) => {
         return number <= 0 ? 'minus' : "plus"
     }
 

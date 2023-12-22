@@ -2,6 +2,7 @@ import './tall.scss';
 import {useSelector} from "react-redux";
 import {selectCategories, selectExpenses} from "../../../../store/Selector";
 import {displayNumber} from "../../../../utils/utils.ts";
+import revenu from "../../../../page/Revenu";
 
 const Tall = () => {
     const categories = useSelector(selectCategories)
@@ -14,7 +15,11 @@ const Tall = () => {
         return acc + current.amount
     }, 0)
 
-    const leftBudget = budget - total;
+    const leftBudget: number = budget - total;
+    const percentSpent: number = (total*100) / budget;
+    const isMinus = (number) => {
+        return number <= 0 ? 'minus' : "plus"
+    }
 
 
     return (
@@ -33,24 +38,22 @@ const Tall = () => {
             </div>
             <div className="tall__details">
                 <div className="tall__details__item">
-                    <span className="label">Dépenses</span>
-                    <span className="value plus">2.13%</span>
+                    <span className="label">Budget dépensé</span>
+                    <span className="value plus">{displayNumber(percentSpent)} %</span>
                 </div>
-                <div className="tall__details__item">
-                    <span className="label">Economies</span>
-                    <span className="value minus">0.7%</span>
-                </div>
-                <div className="tall__details__item">
-                    <span className="label">Alimentaire</span>
-                    <span className="value plus">3.5%</span>
-                </div>
-                <div className="tall__details__item">
-                    <span className="label">Loisirs</span>
-                    <span className="value plus">5%</span>
-                </div>
+                {
+                    categories.map((cat) => {
+                        return (
+                            <div className="tall__details__item">
+                                <span className="label">{cat.name}</span>
+                                <span className={`value ${isMinus((cat.budget*100)/ budget)}`}>{displayNumber((cat.budget*100)/ budget)}%</span>
+                            </div>
+                        )
+                    })
+                }
                 <div className={'tall__details__footer'}>
-                    <span className="tall__details__footer__text">Différence</span>
-                    <span className="tall__details__footer__value minus">224€</span>
+                    <span className="tall__details__footer__text">Réstant</span>
+                    <span className={`tall__details__footer__value ${isMinus(leftBudget)}`}>{displayNumber(leftBudget)} €</span>
                 </div>
             </div>
         </div>

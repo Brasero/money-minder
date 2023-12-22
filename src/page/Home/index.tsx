@@ -14,9 +14,7 @@ const Home = () => {
                 <div className={'home__content'}>
                     <div className={'home__content__items'}>
                         <div className="home__content__items__item-lg">
-                            {/* Todo : A remplacer par un component qui représente les revenues */}
-                            {/*<Bank />*/}
-                            <Income />
+                            <Income extended={false} />
                         </div>
                         <div className="home__content__items__item-lg">
                             {/*Composant de budget avec graphique donut*/}

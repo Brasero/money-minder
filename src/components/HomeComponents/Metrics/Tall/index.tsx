@@ -1,6 +1,22 @@
 import './tall.scss';
+import {useSelector} from "react-redux";
+import {selectCategories, selectExpenses} from "../../../../store/Selector";
+import {displayNumber} from "../../../../utils/utils.ts";
 
 const Tall = () => {
+    const categories = useSelector(selectCategories)
+    const budget = categories.reduce((acc: number, current) => {
+        return acc + current.budget
+    }, 0)
+
+    const expenses = useSelector(selectExpenses)
+    const total = expenses.reduce((acc:number, current) => {
+        return acc + current.amount
+    }, 0)
+
+    const leftBudget = budget - total;
+
+
     return (
         <div className={'tall'}>
             <div className={'tall__bank'}>
@@ -12,7 +28,7 @@ const Tall = () => {
                     <div className="tall__bank__name__separator"></div>
                 </div>
                 <div className="tall__bank__value">
-                    <span className="currency">€</span><span className="value">2350</span>
+                    <span className="currency">€</span><span className="value">{displayNumber(leftBudget)}</span>
                 </div>
             </div>
             <div className="tall__details">

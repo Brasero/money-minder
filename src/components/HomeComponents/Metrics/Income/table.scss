@@ -6,29 +6,39 @@
 
     .header {
       display: flex;
-      justify-content: space-evenly;
+      justify-content: space-between;
       align-items: center;
       gap: 15%;
 
       th {
         font-family: var(--primary-font);
         font-weight: var(--bold-text);
-        font-size: 1rem;
+        font-size: 1.7rem;
         color: transparent;
-        background: var(--primary-linear);
+        background: var(--secondary-linear);
         background-clip: text;
       }
     }
 
     .item {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+
+      border-bottom: 1px solid #8b8b8b;
 
       td {
-        font-size: .7rem;
+        font-size: .9rem;
         font-family: var(--primary-font);
         font-weight: var(--bold-text);
-        padding: 0 35%;
+        padding: 0 35px;
+        text-align: start;
+        display: flex;
+        justify-content: flex-start;
+      }
+
+      &:last-of-type {
+        margin-bottom: 15px
       }
     }
   }

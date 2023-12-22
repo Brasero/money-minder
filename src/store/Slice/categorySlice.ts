@@ -1,5 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {normalizeNumber} from "../../utils/utils.ts";
+import {selectCategories} from "../Selector";
 
 export interface ICategory {
     name: string;
@@ -10,14 +11,7 @@ export interface ICategory {
 
 const categorySlice = createSlice({
     name: 'category',
-    initialState: [
-        {
-            name: 'Alimentation',
-            value: 'alimentation',
-            id: 1,
-            budget: 700
-        }
-    ],
+    initialState: localStorage.getItem('money-minder-store') ? selectCategories(JSON.parse(localStorage.getItem('money-minder-store'))) : Array<ICategory>,
     reducers: {
         addCategory(state, action) {
             if (!state.find((cat) =>  cat.name === action.payload.name)) {

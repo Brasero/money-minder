@@ -1,5 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {normalizeNumber} from "../../utils/utils.ts";
+import {selectExpenses} from "../Selector";
 
 export interface IExpense {
     label: string;
@@ -11,7 +12,7 @@ export interface IExpense {
 
 const expenseSlice = createSlice({
     name: 'expenses',
-    initialState: Array<IExpense>,
+    initialState: localStorage.getItem('money-minder-store') ? selectExpenses(JSON.parse(localStorage.getItem("money-minder-store"))) : Array<IExpense>,
     reducers: {
         addExpense(state, action) {
             const expense: IExpense = {

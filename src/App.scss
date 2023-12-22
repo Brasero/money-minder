@@ -1,0 +1,27 @@
+form {
+  input[type='submit'] {
+    width: 100%;
+    padding: 5px 8px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    font-weight: var(--bold-text);
+    letter-spacing: 2px;
+    color: var(--text-light);
+    background: var(--primary-linear);
+    border: none;
+    border-radius: 15px;
+    position: relative;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all .3s ease-in;
+
+    &:hover {
+      letter-spacing: 4px;
+    }
+  }
+}
+
+.error {
+  color: #ED5F6B;
+}

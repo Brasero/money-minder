@@ -1,6 +1,7 @@
 import React from "react";
 import {IRevenu} from "./index.tsx";
 import './table.scss';
+import {displayNumber} from "../../../../utils/utils.ts";
 
 interface ITableProps {
     revenus: IRevenu[]
@@ -19,7 +20,7 @@ const Table: React.FC<ITableProps> = ({revenus}: ITableProps) => {
                     revenus.map(revenu => {
                         return <tr key={`revenu-${revenu.id}`} className={'item'}>
                             <td>{revenu.origin}</td>
-                            <td>{revenu.amount}€</td>
+                            <td>{displayNumber(revenu.amount)}€</td>
                         </tr>
                     })
                 }

@@ -2,11 +2,16 @@ import React from 'react';
 import './outgoing.scss';
 import {useSelector} from "react-redux";
 import {selectExpenses, selectCategories} from "../../../../store/Selector";
+import {displayNumber} from "../../../../utils/utils.ts";
 
 interface ISpend {
     cat: string;
     budget: number;
     real: number;
+}
+
+const isNegative = (num: number) => {
+    return num <= 0;
 }
 
 const Outgoing: React.FC = () => {
@@ -56,21 +61,22 @@ const Outgoing: React.FC = () => {
                             <th>Réstant</th>
                         </tr>
                         {data.map((spend, index) => {
+                            const difference = spend.budget - spend.real
                             return (
                                 <tr key={index}>
                                     <td>{spend.cat}</td>
-                                    <td>{spend.budget} €</td>
-                                    <td>{spend.real} €</td>
-                                    <td>{spend.budget - spend.real} €</td>
+                                    <td>{displayNumber(spend.budget)} €</td>
+                                    <td>{displayNumber(spend.real)} €</td>
+                                    <td className={isNegative(difference) && 'negative'}>{displayNumber(difference)} €</td>
                                 </tr>
                             )
                         })
                         }
                         <tr className={"last"}>
                             <td>Total</td>
-                            <td>{total.budget} €</td>
-                            <td>{total.real} €</td>
-                            <td>{parseFloat(String(total.budget - total.real))} €</td>
+                            <td>{displayNumber(total.budget)} €</td>
+                            <td>{displayNumber(total.real)} €</td>
+                            <td className={isNegative(total.budget - total.real) && 'negative'}>{displayNumber(total.budget - total.real)} €</td>
                         </tr>
                     </tbody>
                 </table>

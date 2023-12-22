@@ -8,7 +8,6 @@ import CategoryForm from "../../components/SaisieComponent/CategoryForm";
 const Saisie: React.FC = () => {
     return (
         <motion.div className={'saisie'} variants={pageVariant} animate={"visible"} exit={'exit'} initial={'hidden'}>
-            <h1>Saisie</h1>
             <SaisieForm />
             <CategoryForm />
         </motion.div>

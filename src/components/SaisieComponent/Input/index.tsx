@@ -1,4 +1,5 @@
-import React, {ChangeEventHandler} from "react";
+import React, {ChangeEvent, ChangeEventHandler} from "react";
+import './input.scss';
 
 interface IInputProps {
     label: string;
@@ -11,6 +12,15 @@ interface IInputProps {
 
 const Input: React.FC<IInputProps> = ({label, name, type, changeMethod, value, options}: IInputProps) => {
 
+    const superHandleChange = (e: ChangeEvent<HTMLInputElement>) => {
+        const {value} = e.target
+        if (type === 'number' && value.includes(',')) {
+            e.target.value = e.target.value.replace(',', '.')
+        }
+        changeMethod(e)
+    }
+
+
     if(type === "select" && name === "category" && options) {
         return (
             <div className={"select_wrapper"}>
@@ -19,8 +29,12 @@ const Input: React.FC<IInputProps> = ({label, name, type, changeMethod, value, o
                         <option value={''}>---</option>
                         {
                             options.map((option, index) => {
-                                return <option value={option.value}
-                                               key={`cat-${index}-${option.id}`}>{option.name}</option>
+                                return <option
+                                    value={option.value}
+                                    key={`cat-${index}-${option.id}`}
+                                >
+                                    {option.name}
+                                </option>
                             })
                         }
                     </select>
@@ -33,7 +47,14 @@ const Input: React.FC<IInputProps> = ({label, name, type, changeMethod, value, o
     return (
         <div className={"input_wrapper"}>
             <label htmlFor={name}>
-                <input type={type} name={name} id={name} value={value} onChange={changeMethod}/>
+                <input
+                    type={type}
+                    name={name}
+                    placeholder={label}
+                    id={name}
+                    value={type === 'number' && value === 0 ? '' : value}
+                    onChange={type === 'number' ? superHandleChange : changeMethod}
+                />
                 <span className={'input_label'}>{label}</span>
             </label>
         </div>

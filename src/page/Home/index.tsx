@@ -5,6 +5,7 @@ import Tall from "../../components/HomeComponents/Metrics/Tall";
 import Budget from "../../components/HomeComponents/Metrics/Budget";
 import Outgoing from "../../components/HomeComponents/Metrics/Outgoing";
 import {pageVariant} from "../../utils/animation";
+import Income from "../../components/HomeComponents/Metrics/Income";
 const Home = () => {
     return (
         <motion.div className={'homeContainer'} variants={pageVariant} animate={"visible"} exit={'exit'} initial={'hidden'}>
@@ -15,6 +16,7 @@ const Home = () => {
                         <div className="home__content__items__item-lg">
                             {/* Todo : A remplacer par un component qui représente les revenues */}
                             {/*<Bank />*/}
+                            <Income />
                         </div>
                         <div className="home__content__items__item-lg">
                             {/*Composant de budget avec graphique donut*/}

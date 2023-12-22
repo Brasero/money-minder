@@ -1,7 +1,7 @@
 export default {
     label: {
         name: "label",
-        label: 'Déscription de la dépense',
+        label: 'Déscription',
         type: 'text',
         rules: {
             required: true,
@@ -11,8 +11,8 @@ export default {
     },
     amount: {
         name: 'amount',
-        label: 'Montant de la dépense',
-        type: 'text',
+        label: 'Montant',
+        type: 'number',
         rules: {
             required: true,
             minLength: 1,

@@ -76,6 +76,8 @@
           td {
             border-radius: 0 !important;
             background: transparent;
+            color: var(--text-light);
+            font-weight: var(--bold-text);
           }
         }
 
@@ -86,4 +88,8 @@
     }
   }
 
+}
+
+.negative {
+  color: #ED5F6B !important;
 }

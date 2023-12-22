@@ -29,14 +29,5 @@ ul {
     &:hover {
       cursor: pointer;
     }
-
-    a.active {
-      color: transparent;
-      background: var(--primary-linear);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      scale: 1.4 !important;
-      font-weight: var(--bold-text) !important;
-    }
   }
 }

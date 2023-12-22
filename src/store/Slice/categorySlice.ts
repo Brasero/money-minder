@@ -1,4 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
+import {normalizeNumber} from "../../utils/utils.ts";
 
 export interface ICategory {
     name: string;
@@ -20,11 +21,11 @@ const categorySlice = createSlice({
     reducers: {
         addCategory(state, action) {
             if (!state.find((cat) =>  cat.name === action.payload.name)) {
-                state.push({...action.payload, id: state.length + 1})
+                state.push({...action.payload, id: state.length + 1, budget: normalizeNumber(action.payload.budget)})
             } else {
                 state.forEach((cat) => {
                     if (cat.name === action.payload.name) {
-                        cat.budget = action.payload.budget
+                        cat.budget = normalizeNumber(action.payload.budget)
                     }
                 })
             }

@@ -1,10 +1,11 @@
 import React, {ChangeEvent, FormEvent} from "react";
 import formConfig from './formConfig.ts';
-import Input from "./Input/index.tsx";
+import Input from "../Input/index.tsx";
 import {useSelector, useDispatch} from "react-redux";
 import {selectSaisieValues, selectCategories} from "../../../store/Selector";
-import {changeValue} from "../../../store/Slice/saisieSlice.ts";
+import {changeValue, resetValues} from "../../../store/Slice/saisieSlice.ts";
 import {addExpense} from "../../../store/Slice/expenseSlice.ts";
+import './saisie.scss';
 
 const ExpenseForm: React.FC = () => {
 
@@ -20,10 +21,12 @@ const ExpenseForm: React.FC = () => {
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         dispatch(addExpense({...values}))
+        dispatch(resetValues())
     }
 
     return (
         <form id={'form'} onSubmit={handleSubmit}>
+            <h1>Saisir une dépense</h1>
             {
                 Object.keys(formConfig).map((key, index) => {
                     return (

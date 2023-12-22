@@ -1,0 +1,35 @@
+.income {
+  width: 90%;
+  border-collapse: collapse;
+
+  &__container {
+
+    .header {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      gap: 15%;
+
+      th {
+        font-family: var(--primary-font);
+        font-weight: var(--bold-text);
+        font-size: 1rem;
+        color: transparent;
+        background: var(--primary-linear);
+        background-clip: text;
+      }
+    }
+
+    .item {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+      td {
+        font-size: .7rem;
+        font-family: var(--primary-font);
+        font-weight: var(--bold-text);
+        padding: 0 35%;
+      }
+    }
+  }
+}

@@ -1,0 +1,82 @@
+.favoriteBank {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  box-shadow: 4px 4px 100px  rgba(0,0,0,0.4);
+  border-radius: 10px;
+  padding: 5px 0 0;
+  height: 100%;
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 0 10px;
+    justify-content: flex-start;
+    align-items: center;
+
+
+    &__name {
+      color: transparent;
+      background: var(--secondary-linear);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-transform: uppercase;
+      font-size: 1.6rem;
+      margin: 0;
+    }
+
+    &__owner {
+      display: flex;
+      width: 100%;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 3px;
+      padding: 0;
+      margin: 0;
+      font-size: .8rem;
+      font-weight: var(--thin-text);
+      font-family: var(--primary-font);
+    }
+
+    &__amount {
+      display: flex;
+        width: 100%;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 3px;
+        padding: 0;
+        margin: 0;
+        font-size: .9rem;
+        font-weight: var(--regular-text);
+        font-family: var(--primary-font);
+
+      .currency {
+        font-size: 1rem;
+      }
+
+      .separator {
+        width: 100%;
+        height: 1px;
+        background-color: var(--text-dark);
+        opacity: .3;
+        align-self: flex-end;
+      }
+    }
+  }
+
+  &__chart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0 5px;
+    margin: 0;
+  }
+
+}

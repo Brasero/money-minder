@@ -2,6 +2,7 @@ import React, {ChangeEvent, useState} from "react";
 import './categoryForm.scss';
 import {useDispatch} from "react-redux";
 import {addCategory} from "../../../store/Slice/categorySlice.ts";
+import Input from "../Input";
 
 
 interface ICategorySaisie {
@@ -16,7 +17,7 @@ const CategoryForm: React.FC = () => {
     const initialState: ICategorySaisie = {
         name: '',
         value: '',
-        budget: undefined
+        budget: 0
     }
 
     const [state, setState] = useState(initialState)
@@ -55,8 +56,8 @@ const CategoryForm: React.FC = () => {
     return (
         <form className={"categoryForm"} onSubmit={handleSubmit}>
             <h1 className={"title"}>Ajouter une catégorie</h1>
-            <input className={'input'} value={state.name} onChange={handleChange} type={'text'} name={'name'} placeholder={'Nom de la categorie'} />
-            <input className={'input'} value={state.budget} onChange={handleChange} type={'number'} name={'budget'} placeholder={'Budget de la categorie (optionnel)'} />
+            <Input label={'Nom'} value={state.name} type={'text'} name={'name'} changeMethod={handleChange} />
+            <Input label={'Budget (optionnel)'} name={'budget'} type={'number'} value={state.budget} changeMethod={handleChange} />
             <input className={'submit'} type={'submit'} value={'Ajouter'} />
             {
                 message !== '' && <p className={'error'}>{message}</p>

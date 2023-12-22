@@ -18,12 +18,16 @@ const saisieSlice = createSlice({
     reducers: {
         changeValue(state, action: {payload: {name:'label'|'amount'|'category'|string, value: string}, type: string}) {
             state[action.payload.name] = action.payload.value
+        },
+        resetValues(){
+            return initialState
         }
     }
 })
 
 export const {
-    changeValue
+    changeValue,
+    resetValues
 } = saisieSlice.actions
 
 export default saisieSlice;

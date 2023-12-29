@@ -134,14 +134,14 @@
         text-shadow: 0 0 4px rgba(0, 0, 0, .7);
         &.minus {
           color: #f44c6a;
-          &::before {
+          &:not(.percent)::before {
             content: '-';
           }
         }
 
         &.plus {
           color: #00d48c;
-          &::before {
+          &:not(.percent)::before {
             content: '+';
           }
         }
@@ -152,6 +152,59 @@
           font-weight: var(--bold-text);
           padding: 0;
           margin: 0;
+        }
+      }
+    }
+
+    .expensesList {
+      max-height: 280px;
+      border-radius: 0 0 15px 15px;
+      overflow-x: hidden;
+      overflow-y: auto;
+      position: relative;
+
+      h3 {
+        font-family: var(--primary-font);
+        border-bottom: 1px solid var(--text-light);
+        font-size: 1.2rem;
+        position: relative;
+        top: 0;
+        left: 0;
+      }
+
+      .tall__details__item {
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+
+        .label {
+          font-size: 1rem;
+        }
+        .value {
+          font-size: 1rem;
+          display: flex;
+          width: 100%;
+          color: var(--text-mute);
+        }
+      }
+      .link {
+        text-decoration: none;
+        .footer {
+          position: sticky;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 35px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          backdrop-filter: blur(15px);
+          -webkit-backdrop-filter: blur(15px);
+          background: rgba(0,0,0,0.5);
+          border-radius: 0 0 15px 15px;
+          font-family: var(--primary-font);
+          color: var(--text-light);
+          text-decoration: none;
         }
       }
     }

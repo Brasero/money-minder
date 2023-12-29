@@ -2,6 +2,7 @@ import {createSlice} from "@reduxjs/toolkit";
 import {IRevenu} from "../../components/HomeComponents/Metrics/Income";
 import {normalizeNumber} from "../../utils/utils.ts";
 import {selectRevenues} from "../Selector";
+import {getStorageSlice} from "../../utils/localStorage.ts";
 
 export interface IRevenuState {
     revenues : IRevenu[];
@@ -15,7 +16,7 @@ const initialValue: Omit<IRevenu, 'id'> = {
 }
 
 const initialState: IRevenuState = {
-    revenues: localStorage.getItem('money-minder-store') ? selectRevenues(JSON.parse(localStorage.getItem("money-minder-store"))) : [],
+    revenues: getStorageSlice(selectRevenues, []),
     value: initialValue,
     error: ""
 }

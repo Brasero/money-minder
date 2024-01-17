@@ -9,15 +9,15 @@ import ResetPopUp from "../PopUpContainer/ResetPopUp";
 
 const buttonVariant = {
     initial : {
-        width: '50px',
-        height: '50px',
-        borderRadius: '25px',
+        width: '60px',
+        height: '60px',
+        borderRadius: '30px',
         transition: { duration: 0.2 }
     },
     exit: {
         height: '250px',
         borderRadius: '25px',
-        width: '90px',
+        width: '100px',
         transition: { duration: 0.2 }
     }
 }
@@ -25,13 +25,13 @@ const buttonVariant = {
 const crossVariant = {
     initial: {
         rotate: 0,
-        transition: { duration: 0.3 },
-        bottom: '-7px'
+        transition: { duration: 0.3},
+        bottom: 0,
     },
     exit: {
         rotate: 405,
-        transition: { duration: 0.3 },
-        bottom: '5px'
+        transition: { duration: 0.3},
+        bottom: 0
     }
 }
 
@@ -47,7 +47,7 @@ const tabVariant = (num: number) => {
         initial: {
             y: 5 * num,
             opacity: 0,
-            transition: {duration: 0.3, staggerChildren: 0.3}
+            transition: {duration: 0.3}
         },
         exit: {
             y: 0,

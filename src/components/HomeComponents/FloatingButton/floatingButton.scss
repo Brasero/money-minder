@@ -15,22 +15,30 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding-top: 25px;
+  padding: 55px 0 0;
   flex-direction: column;
   gap: 10px;
 
   .cross {
     position: absolute;
+    width: fit-content;
+    height: fit-content;
+    bottom: 0;
   }
 
   .navItem {
     font-size: 0.5rem;
-    font-weight: 100;
+    font-weight: 400;
     padding: 7px 3px;
     border-radius: 5px;
     background: var(--primary-linear);
     box-shadow:  6px 6px 13px #c9515b,
     6px 6px 13px #ff6d7b;
+    height: 15px;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     &.reset {
       background: #ff6d7b;

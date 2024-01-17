@@ -32,7 +32,7 @@
     --dark-linear: linear-gradient(45deg, #54576A 0%, #232436 100%);
 }
 
-html {
+html, * {
     box-sizing: border-box;
     margin:0;
     padding:0;
@@ -49,4 +49,16 @@ body {
     padding: 0 0 80px;
     background: url("./assets/Background.svg") no-repeat center center fixed #e3e3e3;
     background-size: cover;
+}
+
+button {
+    width: 150px;
+    height: 35px;
+    border: none;
+    border-radius: 15px;
+    font-family: var(--primary-font);
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-light);
 }

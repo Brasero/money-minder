@@ -45,11 +45,17 @@
       padding: 0;
       border: none;
       border-collapse: collapse;
-      overflow: hidden;
       tr {
+        transition: all .1s ease-in-out;
         &:nth-child(odd) {
           background: var(--dark-linear);
           color: var(--text-light);
+        }
+        &.item {
+          &:hover {
+            cursor: pointer;
+            scale: 1.05;
+          }
         }
 
         &:nth-child(even) {

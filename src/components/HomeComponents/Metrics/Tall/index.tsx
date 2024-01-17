@@ -1,6 +1,6 @@
 import './tall.scss';
 import {useSelector} from "react-redux";
-import {selectCategories, selectExpenses} from "../../../../store/Selector";
+import {selectCategories, selectExpenses, selectTotalRevenue} from "../../../../store/Selector";
 import {displayNumber} from "../../../../utils/utils.ts";
 import {NavLink} from "react-router-dom";
 
@@ -12,12 +12,15 @@ const Tall = () => {
     }, 0);
 
     const expenses = useSelector(selectExpenses);
-    const total = expenses.reduce((acc:number, current) => {
+    const totalExpenses = expenses.reduce((acc:number, current) => {
         return acc + current.amount
     }, 0);
 
-    const leftBudget: number = budget - total;
-    const percentSpent: number = ((total*100) / budget) || 0;
+    const totalRevenu = useSelector(selectTotalRevenue)
+    const moneyLeft =  budget > totalExpenses ? totalRevenu - budget : totalRevenu - totalExpenses
+
+    const leftBudget: number = budget - totalExpenses;
+    const percentSpent: number = ((totalExpenses*100) / budget) || 0;
     const isMinus = (number: number) => {
         return number <= 0 ? 'minus' : "plus"
     };
@@ -62,15 +65,15 @@ const Tall = () => {
                             )
                         })
                     }
-                    <NavLink to={"/money-minder/expenses"} className={'link'}>
+                    <NavLink to={"/money-minder/expenses#top"} className={'link'}>
                         <div className={'footer'}>
                             Voir Plus {'>'}
                         </div>
                     </NavLink>
                 </div>
                 <div className={'tall__details__footer'}>
-                <span className="tall__details__footer__text">Réstant</span>
-                    <span className={`tall__details__footer__value ${isMinus(leftBudget)}`}>{displayNumber(leftBudget)} €</span>
+                <span className="tall__details__footer__text">Hors budget</span>
+                    <span className={`tall__details__footer__value ${isMinus(moneyLeft)}`}>{displayNumber(moneyLeft)} €</span>
                 </div>
             </div>
         </div>

@@ -1,7 +1,41 @@
 .expenseItem {
-  border: 1px solid red;
+  border-bottom: 1px solid var(--text-dark);
 
   display: flex;
   width: 100%;
-  padding: 5px;
+  padding: 5px 0;
+  justify-content: space-evenly;
+  align-items: flex-end;
+
+  .item {
+    width: 25%;
+    font-family: var(--primary-font);
+  }
+
+  .date {
+    font-size: .9rem;
+    letter-spacing: 1px;
+    color: transparent;
+    background: var(--secondary-linear);
+    background-clip: text;
+  }
+
+  .label {
+    font-family: var(--primary-font);
+    font-size: 1.1rem;
+  }
+
+  .amount {
+    color: transparent;
+    background: var(--primary-linear);
+    background-clip: text;
+    font-size: 1.5rem;
+    &:after {
+      content: '€';
+    }
+  }
+
+  .category {
+    font-size: 1.1rem;
+  }
 }

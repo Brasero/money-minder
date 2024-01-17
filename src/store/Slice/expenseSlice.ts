@@ -33,13 +33,26 @@ const expenseSlice = createSlice({
         resetExpense(state) {
             state = [];
             return state;
+        },
+        updateExpenseCategory(state, action){
+            state = state.map((exp: IExpense) => {
+                if(exp.category.toLowerCase() === action.payload.toLowerCase()) {
+                    return {
+                        ...exp,
+                        category: 'autres'
+                    }
+                }
+                return exp;
+            })
+            return state;
         }
     }
 })
 
 export const {
     addExpense,
-    resetExpense
+    resetExpense,
+    updateExpenseCategory
 } = expenseSlice.actions
 
 export default expenseSlice;

@@ -10,9 +10,10 @@ const ExpenseItem: React.FC<IExpenseItemProps> = ({expense}: IExpenseItemProps) 
 
     return (
         <div className={'expenseItem'}>
-            <div>{expense.label}</div>
-            <div>{expense.amount}</div>
-            <div>{expense.category[0].toUpperCase() + expense.category.slice(1)}</div>
+            <div className={'date item'}>{(new Date(expense.date)).toLocaleDateString()}</div>
+            <div className={'label item'}>{expense.label}</div>
+            <div className={'amount item'}>{expense.amount}</div>
+            <div className={'category item'}>{expense.category[0].toUpperCase() + expense.category.slice(1)}</div>
         </div>
     )
 }

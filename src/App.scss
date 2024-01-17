@@ -3,12 +3,10 @@ form {
     font-size: 16px;
   }
   input[type='submit'] {
-    width: 100%;
     padding: 5px 8px;
-    font-size: 16px;
     text-transform: uppercase;
     font-weight: var(--bold-text);
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     color: var(--text-light);
     background: var(--primary-linear);
     border: none;
@@ -18,10 +16,10 @@ form {
     left: 50%;
     transform: translateX(-50%);
     transition: all .3s ease-in;
-
-    &:hover {
-      letter-spacing: 4px;
-    }
+    width: 150px;
+    height: 35px;
+    font-family: var(--primary-font);
+    font-size: 1.5rem;
   }
 }
 

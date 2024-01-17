@@ -92,9 +92,9 @@ function FloatingButton() {
                 exit={'exit'}
                 animate={buttonState ? 'exit' : 'initial'}
                 variants={tabVariant(4)}
-                onClick={() => handleNavClick('categorie')}
+                onClick={() => handleNavClick('depense')}
             >
-                Ajouter une catégorie
+                Ajouter une dépense
             </motion.div>
             <motion.div
                 className={'navItem'}
@@ -102,9 +102,9 @@ function FloatingButton() {
                 exit={'exit'}
                 animate={buttonState ? 'exit' : 'initial'}
                 variants={tabVariant(3)}
-                onClick={() => handleNavClick('depense')}
+                onClick={() => handleNavClick('categorie')}
             >
-                Ajouter une dépense
+                Ajouter une catégorie
             </motion.div>
             <motion.div
                 className={'navItem'}

@@ -3,11 +3,14 @@ import './outgoing.scss';
 import {useSelector} from "react-redux";
 import {selectExpenses, selectCategories} from "../../../../store/Selector";
 import {displayNumber} from "../../../../utils/utils.ts";
+import {usePopUpContext} from "../../../../utils/context/popUpContext.tsx";
+import CategoryUpdatePopUp from "../../CategoryUpdatePopUp";
 
 interface ISpend {
     cat: string;
     budget: number;
     real: number;
+    id: number;
 }
 
 const isNegative = (num: number) => {
@@ -18,6 +21,16 @@ const Outgoing: React.FC = () => {
 
     const expenses = useSelector(selectExpenses)
     const categories = useSelector(selectCategories)
+
+    const {
+        definePopUp,
+        openPopUp
+    } = usePopUpContext()
+
+    const openModifyPopUp = (id: number) => {
+        definePopUp(<CategoryUpdatePopUp id={id}/>);
+        openPopUp();
+    }
 
     const reals = expenses.reduce((acc: never[], current) => {
         if (acc[current.category]){
@@ -35,7 +48,8 @@ const Outgoing: React.FC = () => {
         acc.push({
             cat: current.name,
             budget: current.budget || 0,
-            real: reals[current.value] || 0
+            real: reals[current.value] || 0,
+            id: current.id
         })
         return acc
     }, [])
@@ -63,7 +77,7 @@ const Outgoing: React.FC = () => {
                         {data.map((spend, index) => {
                             const difference = spend.budget - spend.real
                             return (
-                                <tr key={index}>
+                                <tr className={'item'} key={index} onClick={() => openModifyPopUp(spend.id)}>
                                     <td>{spend.cat}</td>
                                     <td>{displayNumber(spend.budget)} €</td>
                                     <td>{displayNumber(spend.real)} €</td>

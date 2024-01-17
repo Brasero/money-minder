@@ -1,22 +1,15 @@
 import {useSelector} from "react-redux";
-import {selectRevenues} from "../../store/Selector";
-import {selectExpenses} from "../../store/Selector";
+import {selectTotalExpense, selectTotalRevenue} from "../../store/Selector";
 import {displayNumber, joursRestants} from "../../utils/utils.ts";
 
 const HomeHeader = () => {
-    const revenues = useSelector(selectRevenues)
-    const totalRevenu = revenues.reduce((acc:number, current) => {
-        return acc + current.amount
-    }, 0)
-    const expenses = useSelector(selectExpenses)
-    const totalExpenses = expenses.reduce((acc: number, current) => {
-        return acc + current.amount
-    }, 0)
+    const totalRevenu = useSelector(selectTotalRevenue)
+    const totalExpenses = useSelector(selectTotalExpense)
 
-    //Nombre de jour restant avant la fin du mois
+    //Nombre de jours restant avant la fin du mois
     const restant = joursRestants();
     const argentRestant = totalRevenu - totalExpenses;
-    const argentParJour = argentRestant / restant;
+    const argentParJour = (argentRestant / restant) > 0 ? argentRestant / restant : 0;
 
     return (
         <header className={'home__header'}>

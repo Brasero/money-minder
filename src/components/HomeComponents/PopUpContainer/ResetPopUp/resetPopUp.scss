@@ -1,0 +1,51 @@
+.resetPopUp {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+
+  .title {
+    color: #f44c6a;
+    font-size: 3rem;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    width: 80%;
+    background-clip: text;
+    color: var(--text-dark);
+    transform: translateY(-35px);
+
+    strong {
+      background: var(--primary-linear);
+      background-clip: text;
+      font-size: 1.5rem;
+      color: transparent;
+    }
+  }
+
+  .buttonGroup {
+
+    display: flex;
+    justify-content: space-evenly;
+    gap: 25px;
+    margin: 0;
+    button {
+      width: 150px;
+      height: 35px;
+      border: none;
+      border-radius: 15px;
+      &:first-child {
+        background: var(--primary-linear);
+        color: var(--text-light);
+      }
+      &:last-child {
+        background: var(--secondary-linear);
+        color: var(--text-light);
+      }
+    }
+
+  }
+}

@@ -1,0 +1,38 @@
+.floatingButton {
+  position: fixed;
+  bottom: 75px;
+  right: 5px;
+  z-index: 100;
+  appearance: none;
+  border: none;
+  background: linear-gradient(145deg, #fe6672, #d55660);
+  box-shadow:  20px 20px 60px #230f12,
+  -20px -20px 60px #3e3a3b;
+  color: var(--text-light);
+  font-size: 3rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 25px;
+  flex-direction: column;
+  gap: 10px;
+
+  .cross {
+    position: absolute;
+  }
+
+  .navItem {
+    font-size: 0.5rem;
+    font-weight: 100;
+    padding: 7px 3px;
+    border-radius: 5px;
+    background: var(--primary-linear);
+    box-shadow:  6px 6px 13px #c9515b,
+    6px 6px 13px #ff6d7b;
+
+    &.reset {
+      background: #ff6d7b;
+    }
+  }
+}

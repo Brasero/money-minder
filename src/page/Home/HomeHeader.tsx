@@ -15,7 +15,6 @@ const HomeHeader = () => {
 
     //Nombre de jour restant avant la fin du mois
     const restant = joursRestants();
-    console.log(restant);
     const argentRestant = totalRevenu - totalExpenses;
     const argentParJour = argentRestant / restant;
 

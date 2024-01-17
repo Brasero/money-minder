@@ -32,7 +32,7 @@ const TabBar = () => {
                 <NavLink style={isActive} end to={"/money-minder"}>Home</NavLink>
             </motion.li>
             <motion.li whileHover={hoverAnimation}>
-                <NavLink style={isActive} end to={"/money-minder/saisie"}>Données</NavLink>
+                <NavLink style={isActive} end to={"/money-minder/saisie"}>Saisie</NavLink>
             </motion.li>
             <motion.li whileHover={hoverAnimation}>
                 <NavLink style={isActive} end to={"/money-minder/profile"}>Profile</NavLink>

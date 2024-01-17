@@ -17,7 +17,7 @@ const Tall = () => {
     }, 0);
 
     const leftBudget: number = budget - total;
-    const percentSpent: number = (total*100) / budget;
+    const percentSpent: number = ((total*100) / budget) || 0;
     const isMinus = (number: number) => {
         return number <= 0 ? 'minus' : "plus"
     };

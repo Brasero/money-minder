@@ -7,6 +7,9 @@ import Saisie from "./page/Saisie";
 import Revenu from "./page/Revenu";
 import {useEffect} from "react";
 import {checkIfStorageIsAtDate} from "./utils/localStorage.ts";
+import FloatingButton from "./components/HomeComponents/FloatingButton";
+import PopUpContainer from "./components/HomeComponents/PopUpContainer";
+import Expenses from "./page/Expenses";
 
 
 function App() {
@@ -27,8 +30,11 @@ function App() {
                         <Route path={"/money-minder/saisie"} element={<Saisie/>}/>
                         <Route path={"/money-minder/profile"} element={<div>Profile</div>}/>
                         <Route path={"/money-minder/revenu"} element={<Revenu/>}/>
+                        <Route path={"/money-minder/expenses"} element={<Expenses />} />
                     </Routes>
                 </AnimatePresence>
+                <FloatingButton />
+                <PopUpContainer />
             </div>
             <nav id={"tab-bar"}>
                 <TabBar/>

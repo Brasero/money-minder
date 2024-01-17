@@ -6,12 +6,21 @@ import {selectSaisieValues, selectCategories} from "../../../store/Selector";
 import {changeValue, resetValues} from "../../../store/Slice/saisieSlice.ts";
 import {addExpense} from "../../../store/Slice/expenseSlice.ts";
 import './saisie.scss';
+import {usePopUpContext} from "../../../utils/context/popUpContext.tsx";
 
-const ExpenseForm: React.FC = () => {
+
+interface IExpenseFormProps {
+    isPopUp: boolean
+}
+const ExpenseForm: React.FC<IExpenseFormProps> = ({isPopUp = false}: IExpenseFormProps) => {
 
     const dispatch = useDispatch()
     const values = useSelector(selectSaisieValues)
     const categories = useSelector(selectCategories)
+
+    const {
+        resetPopUp
+    } = usePopUpContext()
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         const {name, value} = e.target
@@ -22,6 +31,7 @@ const ExpenseForm: React.FC = () => {
         e.preventDefault()
         dispatch(addExpense({...values}))
         dispatch(resetValues())
+        isPopUp && resetPopUp()
     }
 
     return (

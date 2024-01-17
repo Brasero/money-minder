@@ -10,7 +10,7 @@ const Revenu: React.FC = () => {
     return (
         <motion.div className={'revenuContainer'} variants={pageVariant} animate={"visible"} exit={'exit'} initial={'hidden'}>
             <Income extended />
-            <RevenuForm />
+            <RevenuForm isPopUp={false}/>
         </motion.div>
     )
 }

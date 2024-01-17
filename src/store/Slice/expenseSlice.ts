@@ -8,6 +8,7 @@ export interface IExpense {
     amount: number;
     id: number;
     category: string;
+    date: Date;
 }
 
 
@@ -24,15 +25,21 @@ const expenseSlice = createSlice({
                     }
                     return acc
                 }, 0) + 1,
-                amount: normalizeNumber(action.payload.amount)
+                amount: normalizeNumber(action.payload.amount),
+                date: Date.now()
             }
             state.push({...expense})
+        },
+        resetExpense(state) {
+            state = [];
+            return state;
         }
     }
 })
 
 export const {
-    addExpense
+    addExpense,
+    resetExpense
 } = expenseSlice.actions
 
 export default expenseSlice;

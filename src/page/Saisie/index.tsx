@@ -8,8 +8,8 @@ import CategoryForm from "../../components/SaisieComponent/CategoryForm";
 const Saisie: React.FC = () => {
     return (
         <motion.div className={'saisie'} variants={pageVariant} animate={"visible"} exit={'exit'} initial={'hidden'}>
-            <SaisieForm />
-            <CategoryForm />
+            <SaisieForm isPopUp={false}/>
+            <CategoryForm isPopUp={false}/>
         </motion.div>
     );
 };

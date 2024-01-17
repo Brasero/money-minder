@@ -17,7 +17,7 @@ const buttonVariant = {
     exit: {
         height: '250px',
         borderRadius: '25px',
-        width: '70px',
+        width: '90px',
         transition: { duration: 0.2 }
     }
 }

@@ -1,9 +1,7 @@
 import {deleteCategory} from "../Slice/categorySlice.ts";
 import {updateExpenseCategory} from "../Slice/expenseSlice.ts";
-import {StoreState} from "../index.tsx";
-import {Middleware} from "redux";
 
-const categorieExpenseMiddleware: Middleware<{}, StoreState> = (store) => (next) => (action) => {
+const categorieExpenseMiddleware = (store: any) => (next: any) => (action: any) => {
 
     if(action.type === deleteCategory.toString()) {
         store.dispatch(updateExpenseCategory(action.payload.value))

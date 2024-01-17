@@ -25,6 +25,4 @@ store.subscribe(() => {
     saveMounth((new Date()).getMonth())
 })
 
-export type StoreState = ReturnType<typeof  store.getState>
-
 export default store;

@@ -9,7 +9,7 @@ export interface ISaisie {
 const initialState: ISaisie = {
     label: "",
     amount: "",
-    category: ""
+    category: "autres"
 }
 
 const saisieSlice = createSlice({

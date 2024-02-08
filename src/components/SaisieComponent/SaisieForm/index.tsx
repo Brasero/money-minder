@@ -34,6 +34,12 @@ const ExpenseForm: React.FC<IExpenseFormProps> = ({isPopUp = false}: IExpenseFor
         isPopUp && resetPopUp()
     }
 
+    const submitAgain = (e: any) => {
+        e.preventDefault()
+        dispatch(addExpense({...values}))
+        dispatch(resetValues())
+    }
+
     return (
         <form id={'form'} onSubmit={handleSubmit}>
             <h1>Saisir une dépense</h1>
@@ -53,6 +59,7 @@ const ExpenseForm: React.FC<IExpenseFormProps> = ({isPopUp = false}: IExpenseFor
                 })
             }
             <input type={"submit"} value={'Ajouter'} />
+            <button className={'retake'} onClick={submitAgain}>Ajouter et saisir à nouveau</button>
         </form>
     )
 }

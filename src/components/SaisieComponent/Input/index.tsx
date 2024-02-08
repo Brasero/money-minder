@@ -26,7 +26,6 @@ const Input: React.FC<IInputProps> = ({label, name, type, changeMethod, value, o
             <div className={"select_wrapper"}>
                 <label htmlFor={name}>
                     <select name={name} value={value} onChange={changeMethod}>
-                        <option value={''}>---</option>
                         {
                             options.map((option, index) => {
                                 return <option

@@ -3,7 +3,6 @@ import {Routes, Route, useLocation} from "react-router-dom";
 import {AnimatePresence} from "framer-motion";
 import Home from "./page/Home";
 import TabBar from "./components/main/TabBar";
-import Saisie from "./page/Saisie";
 import Revenu from "./page/Revenu";
 import {useEffect} from "react";
 import {checkIfStorageIsAtDate} from "./utils/localStorage.ts";
@@ -27,7 +26,6 @@ function App() {
                 <AnimatePresence presenceAffectsLayout={false} mode={"wait"}>
                     <Routes location={location} key={location.pathname}>
                         <Route path={"/money-minder"} element={<Home/>}/>
-                        <Route path={"/money-minder/saisie"} element={<Saisie/>}/>
                         <Route path={"/money-minder/profile"} element={<div>Profile</div>}/>
                         <Route path={"/money-minder/revenu"} element={<Revenu/>}/>
                         <Route path={"/money-minder/expenses"} element={<Expenses />} />

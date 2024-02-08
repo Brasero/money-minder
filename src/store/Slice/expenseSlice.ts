@@ -25,7 +25,7 @@ const expenseSlice = createSlice({
                     }
                     return acc
                 }, 0) + 1,
-                amount: normalizeNumber(action.payload.amount),
+                amount: normalizeNumber(action.payload.amount) || 0,
                 date: Date.now()
             }
             state.push({...expense})
@@ -45,6 +45,9 @@ const expenseSlice = createSlice({
                 return exp;
             })
             return state;
+        },
+        updateExpense(state, action) {
+            //TODO : implémenter la fonction de modification des dépenses.
         }
     }
 })

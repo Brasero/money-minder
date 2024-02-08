@@ -47,7 +47,8 @@ const expenseSlice = createSlice({
             return state;
         },
         updateExpense(state, action) {
-            //TODO : implémenter la fonction de modification des dépenses.
+            action.payload.trim()
+            return state;
         }
     }
 })

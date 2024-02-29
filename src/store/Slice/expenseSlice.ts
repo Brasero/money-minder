@@ -47,7 +47,14 @@ const expenseSlice = createSlice({
             return state;
         },
         updateExpense(state, action) {
-            action.payload.trim()
+            const expense: IExpense = state.find((exp: IExpense) => exp.id === action.payload.id)
+            const newExpense: IExpense = {...expense, ...action.payload}
+            state = state.map((exp: IExpense) => {
+                if (exp.id === newExpense.id) {
+                    return newExpense
+                }
+                return expense
+            })
             return state;
         }
     }
@@ -56,7 +63,8 @@ const expenseSlice = createSlice({
 export const {
     addExpense,
     resetExpense,
-    updateExpenseCategory
+    updateExpenseCategory,
+    updateExpense
 } = expenseSlice.actions
 
 export default expenseSlice;

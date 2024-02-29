@@ -1,6 +1,9 @@
 import React from "react";
 import {IExpense} from "../../../store/Slice/expenseSlice.ts";
 import './expenseItem.scss';
+import {usePopUpContext} from "../../../utils/context/popUpContext.tsx";
+import ExpenseUpdate from "../../../components/HomeComponents/ExpenseUpdate";
+import expenseUpdate from "../../../components/HomeComponents/ExpenseUpdate";
 
 interface IExpenseItemProps {
     expense: IExpense
@@ -8,8 +11,20 @@ interface IExpenseItemProps {
 
 const ExpenseItem: React.FC<IExpenseItemProps> = ({expense}: IExpenseItemProps) => {
 
+    const {
+        definePopUp,
+        openPopUp,
+        resetPopUp
+    } = usePopUpContext()
+
+    const click = () => {
+        resetPopUp()
+        definePopUp(<ExpenseUpdate id={expense.id} />)
+        openPopUp()
+    }
+
     return (
-        <div className={'expenseItem'}>
+        <div className={'expenseItem'} onClick={click}>
             <div className={'date item'}>{(new Date(expense.date)).toLocaleDateString()}</div>
             <div className={'label item'}>{expense.label}</div>
             <div className={'amount item'}>{expense.amount}</div>

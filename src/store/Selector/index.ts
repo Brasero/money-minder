@@ -13,6 +13,8 @@ export const selectCategoryById = (id: number) => {
 export const selectExpenses = (state: {expense: IExpense[]}) => state.expense;
 export const selectTotalExpense = (state: {expense: IExpense[]}) => state.expense.reduce((acc, current) => acc + current.amount, 0)
 
+export const selectExpenseById = (id: number) => (state: {expense: IExpense[]}) => state.expense.find((exp: IExpense) => exp.id === id)
+
 export const selectRevenues = (state: {revenu: IRevenuState}) => state.revenu.revenues;
 export const selectTotalRevenue = (state: {revenu: IRevenuState}) => state.revenu.revenues.reduce((acc, current) => acc + current.amount, 0)
 

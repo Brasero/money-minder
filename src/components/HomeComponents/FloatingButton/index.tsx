@@ -12,13 +12,15 @@ const buttonVariant = {
         width: '60px',
         height: '60px',
         borderRadius: '30px',
-        transition: { duration: 0.2 }
+        transition: { duration: 0.2 },
+        opacity: .5
     },
     exit: {
         height: '250px',
         borderRadius: '25px',
         width: '100px',
-        transition: { duration: 0.2 }
+        transition: { duration: 0.2 },
+        opacity: 1
     }
 }
 
@@ -26,7 +28,7 @@ const crossVariant = {
     initial: {
         rotate: 0,
         transition: { duration: 0.3},
-        bottom: 0,
+        bottom: 0
     },
     exit: {
         rotate: 405,

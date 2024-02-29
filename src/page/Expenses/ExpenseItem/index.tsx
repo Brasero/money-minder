@@ -3,7 +3,6 @@ import {IExpense} from "../../../store/Slice/expenseSlice.ts";
 import './expenseItem.scss';
 import {usePopUpContext} from "../../../utils/context/popUpContext.tsx";
 import ExpenseUpdate from "../../../components/HomeComponents/ExpenseUpdate";
-import expenseUpdate from "../../../components/HomeComponents/ExpenseUpdate";
 
 interface IExpenseItemProps {
     expense: IExpense

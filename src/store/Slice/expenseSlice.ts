@@ -49,12 +49,8 @@ const expenseSlice = createSlice({
         updateExpense(state, action) {
             const expense: IExpense = state.find((exp: IExpense) => exp.id === action.payload.id)
             const newExpense: IExpense = {...expense, ...action.payload}
-            state = state.map((exp: IExpense) => {
-                if (exp.id === newExpense.id) {
-                    return newExpense
-                }
-                return expense
-            })
+            state = state.filter((exp: IExpense) => exp.id !== newExpense.id)
+            state.push(newExpense)
             return state;
         }
     }

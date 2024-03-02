@@ -17,9 +17,9 @@ const Expenses: React.FC = () => {
         window.scrollTo({top: 0, left: 0, behavior: "smooth"});
     }, [])
 
-    const total: number = expenses.reduce((acc: number, current: IExpense) => {
+    const total: string = String(Math.floor(expenses.reduce((acc: number, current: IExpense) => {
         return acc + current.amount;
-    }, 0)
+    }, 0) * 100) / 100).replace('.',',');
 
     return (
         <motion.div className={"expenseContainer"} variants={pageVariant} animate={"visible"} exit={'exit'} initial={'hidden'}>

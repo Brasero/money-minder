@@ -1,4 +1,4 @@
-export const normalizeNumber = (number: any) => {
+export const normalizeNumber = (number: string | number) => {
     if(typeof number !== "number") {
         return parseFloat(number)
     }

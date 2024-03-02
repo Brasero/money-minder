@@ -5,6 +5,7 @@ import {selectCategories, selectExpenseById} from "../../../store/Selector";
 import Input from "../../SaisieComponent/Input";
 import {updateExpense} from "../../../store/Slice/expenseSlice.ts";
 import {usePopUpContext} from "../../../utils/context/popUpContext.tsx";
+import SuppressExpensePopUp from "./SuppressExpensePopUp";
 
 interface IExpenseUpdateProps {
     id: number;
@@ -18,7 +19,9 @@ const ExpenseUpdate: React.FC<IExpenseUpdateProps> = ({id}: IExpenseUpdateProps)
 
     const {
         closePopUp,
-        resetPopUp
+        resetPopUp,
+        definePopUp,
+        openPopUp
     } = usePopUpContext()
 
     const [newValue, setNewValue] = useState({...expense})
@@ -40,7 +43,15 @@ const ExpenseUpdate: React.FC<IExpenseUpdateProps> = ({id}: IExpenseUpdateProps)
         resetPopUp()
     }
 
-    const close = () => closePopUp()
+    const onDelete = () => {
+        resetPopUp()
+        definePopUp(<SuppressExpensePopUp id={id} />)
+        openPopUp()
+    }
+
+    const close = () => {
+        closePopUp()
+    }
 
     return (
         <div className={'expenseUpdate'}>
@@ -51,8 +62,8 @@ const ExpenseUpdate: React.FC<IExpenseUpdateProps> = ({id}: IExpenseUpdateProps)
                 <Input changeMethod={handleChange} label={'Catégorie'} value={newValue.category} name={"category"} type={'select'} options={category} />
                 <div className={'buttonGroup'}>
                     <input type={"submit"} value={'Modifier'} className={'validate'}/>
-                    <button onClick={close} className={'abort'}>Annuler</button>
-                    <button className={'suppress'}>Supprimer</button>
+                    <button role={'button'} onClick={close} className={'abort'}>Annuler</button>
+                    <button role={'button'} onClick={onDelete} className={'suppress'}>Supprimer</button>
                 </div>
             </form>
         </div>

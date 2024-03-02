@@ -81,7 +81,7 @@ const Outgoing: React.FC = () => {
                                     <td>{spend.cat}</td>
                                     <td>{displayNumber(spend.budget)} €</td>
                                     <td>{displayNumber(spend.real)} €</td>
-                                    <td className={isNegative(difference) && 'negative'}>{displayNumber(difference)} €</td>
+                                    <td className={isNegative(difference) ? 'negative' : undefined}>{displayNumber(difference)} €</td>
                                 </tr>
                             )
                         })

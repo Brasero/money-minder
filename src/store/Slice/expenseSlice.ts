@@ -35,6 +35,10 @@ const expenseSlice = createSlice({
             return state;
         },
         updateExpenseCategory(state, action){
+            /*
+              * Cette action sert lorsqu'une catégorie est supprimé afin d'assigner la catégorie "autres"
+              * aux dépenses qui lui étaient liée
+             */
             state = state.map((exp: IExpense) => {
                 if(exp.category.toLowerCase() === action.payload.toLowerCase()) {
                     return {
@@ -51,7 +55,11 @@ const expenseSlice = createSlice({
             const newExpense: IExpense = {...expense, ...action.payload}
             state = state.filter((exp: IExpense) => exp.id !== newExpense.id)
             state.push(newExpense)
+            state.sort((a: IExpense,b: IExpense) => a.id - b.id)
             return state;
+        },
+        deleteExpense(state, action) {
+            return state.filter((expense: IExpense) => expense.id !== action.payload)
         }
     }
 })
@@ -60,7 +68,8 @@ export const {
     addExpense,
     resetExpense,
     updateExpenseCategory,
-    updateExpense
+    updateExpense,
+    deleteExpense
 } = expenseSlice.actions
 
 export default expenseSlice;

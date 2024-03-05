@@ -9,7 +9,16 @@ const HomeHeader = () => {
     //Nombre de jours restant avant la fin du mois
     const restant = joursRestants();
     const argentRestant = totalRevenu - totalExpenses;
-    const argentParJour = (argentRestant / restant) > 0 ? argentRestant / restant : 0;
+    /**
+     * Si restant est différent de 0 et que l'argent restant divisé par restant est supérieur à 0 on calcule, sinon on applique 0
+     * Si restant est égale à 0 on assigne simplement l'argent réstant
+     */
+    const argentParJour = restant !== 0 ?
+        (argentRestant / restant) > 0 ?
+            argentRestant / restant
+            :
+            0
+        : argentRestant;
 
     return (
         <header className={'home__header'}>
@@ -21,8 +30,8 @@ const HomeHeader = () => {
                     <span className="home__header__metrics__item__label">Argent réstant</span>
                 </div>
                 <div className="home__header__metrics__item">
-                    <span className="home__header__metrics__item__value">{displayNumber(totalRevenu)} €</span>
-                    <span className="home__header__metrics__item__label">Revenu</span>
+                    <span className="home__header__metrics__item__value">{displayNumber(totalExpenses)} €</span>
+                    <span className="home__header__metrics__item__label">Dépenses</span>
                 </div>
                 <div className="home__header__metrics__item">
                     <span className="home__header__metrics__item__value">{displayNumber(argentParJour)} €</span>

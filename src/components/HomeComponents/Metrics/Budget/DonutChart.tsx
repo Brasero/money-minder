@@ -3,10 +3,11 @@ import React from 'react';
 // @ts-ignore
 import {RadialChart} from 'react-vis';
 import {ICategory} from "../../../../store/Slice/categorySlice.ts";
+import {IExpenseItem} from "../RealExpenses";
 
 interface DonutChartProps {
     total: number;
-    category: Array<ICategory>;
+    category: Array<ICategory> | Array<IExpenseItem>;
 }
 interface IDonutChartData {
     angle: number;
@@ -16,7 +17,7 @@ interface IDonutChartData {
 
 const DonutChart: React.FC<DonutChartProps> = ({total, category}: DonutChartProps) => {
 
-    const data: IDonutChartData[] = category.reduce((acc: IDonutChartData[], current: ICategory) => {
+    const data: IDonutChartData[] = category.reduce((acc: IDonutChartData[], current: ICategory | IExpenseItem) => {
         if (!current.budget) {
             return acc
         }
@@ -24,7 +25,7 @@ const DonutChart: React.FC<DonutChartProps> = ({total, category}: DonutChartProp
         acc.push({
             angle,
             label: current.name,
-            subLabel: `${current.budget}€`
+            subLabel: `${(Math.round(current.budget * 100) / 100)}€`
         })
         return acc
     }, [])

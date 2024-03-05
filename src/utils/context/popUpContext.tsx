@@ -3,10 +3,10 @@ import {createContext, ReactNode, useContext, useState} from "react";
 interface IPopUpContext {
     isOpen: boolean;
     popUp: ReactNode;
-    definePopUp: Function;
-    resetPopUp: Function;
-    openPopUp: Function;
-    closePopUp: Function;
+    definePopUp: (children: ReactNode) => void;
+    resetPopUp: () => void;
+    openPopUp: () => void;
+    closePopUp: () => void;
 }
 
 const PopUpContext = createContext({} as IPopUpContext);

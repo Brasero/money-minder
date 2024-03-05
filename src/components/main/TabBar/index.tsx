@@ -1,6 +1,8 @@
 import {motion} from 'framer-motion';
 import "./TabBar.scss";
 import {NavLink} from "react-router-dom";
+import { FcHome } from "react-icons/fc";
+import { CgProfile } from "react-icons/cg";
 
 const hoverAnimation = {
     scale: 1.2,
@@ -15,12 +17,9 @@ interface INavProps {
 
 const isActive = ({isActive}: INavProps) => {
     return isActive ? {
-        color: 'transparent',
-        background: 'var(--primary-linear)',
-        WebkitBackgroundClip: 'text',
-        WebkitTextFillColor: 'transparent',
         scale: '1.4 !important',
         fontWeight: 'var(--bold-text) !important',
+        borderBottom: '3px solid var(--primary-color)'
     } : {}
 }
 
@@ -29,10 +28,14 @@ const TabBar = () => {
     return (
         <ul>
             <motion.li whileHover={hoverAnimation}>
-                <NavLink style={isActive} end to={"/money-minder"}>Home</NavLink>
+                <NavLink style={isActive} end to={"/money-minder"}>
+                    <FcHome />
+                </NavLink>
             </motion.li>
             <motion.li whileHover={hoverAnimation}>
-                <NavLink style={isActive} end to={"/money-minder/profile"}>Profile</NavLink>
+                <NavLink style={isActive} end to={"/money-minder/profile"}>
+                    <CgProfile />
+                </NavLink>
             </motion.li>
         </ul>
     );

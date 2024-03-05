@@ -90,7 +90,7 @@ const Outgoing: React.FC = () => {
                             <td>Total</td>
                             <td>{displayNumber(total.budget)} €</td>
                             <td>{displayNumber(total.real)} €</td>
-                            <td className={isNegative(total.budget - total.real) && 'negative'}>{displayNumber(total.budget - total.real)} €</td>
+                            <td className={isNegative(total.budget - total.real) ? 'negative' : undefined}>{displayNumber(total.budget - total.real)} €</td>
                         </tr>
                     </tbody>
                 </table>

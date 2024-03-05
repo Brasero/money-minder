@@ -19,8 +19,8 @@ const PopUpContainer: React.FC = () => {
 
     const {
         isOpen,
-        popUp,
-        resetPopUp
+        resetPopUp,
+        popUp
     } = usePopUpContext()
 
     const close = () => resetPopUp()

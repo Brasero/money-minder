@@ -17,7 +17,6 @@ const Budget = () => {
 
     return (
         <div className={'budget'}>
-            {/*Right part*/}
             <div className="budget__part">
                 <div className="budget__part__header">
                     <h4 className={'budget__part__header__title'}>Budget</h4>
@@ -31,10 +30,6 @@ const Budget = () => {
                     </span>
                     <span className="separator"></span>
                 </div>
-            </div>
-            {/*Left part*/}
-            <div className="budget__part">
-
             </div>
         </div>
     );

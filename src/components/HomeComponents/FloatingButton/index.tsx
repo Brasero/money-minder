@@ -2,7 +2,7 @@ import {motion} from 'framer-motion';
 import './floatingButton.scss';
 import {useState} from "react";
 import {usePopUpContext} from "../../../utils/context/popUpContext.tsx";
-import SaisieForm from "../../SaisieComponent/SaisieForm";
+import ExpenseForm from "../../SaisieComponent/ExpenseForm";
 import CategoryForm from "../../SaisieComponent/CategoryForm";
 import RevenuForm from "../../SaisieComponent/RevenuForm";
 import ResetPopUp from "../PopUpContainer/ResetPopUp";
@@ -38,7 +38,7 @@ const crossVariant = {
 }
 
 const pageOptions = {
-    depense: <SaisieForm isPopUp/>,
+    depense: <ExpenseForm isPopUp/>,
     categorie: <CategoryForm isPopUp/>,
     revenue: <RevenuForm isPopUp/>,
     reset: <ResetPopUp />

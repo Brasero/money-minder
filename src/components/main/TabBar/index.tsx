@@ -1,8 +1,7 @@
 import {motion} from 'framer-motion';
 import "./TabBar.scss";
 import {NavLink} from "react-router-dom";
-import { FcHome } from "react-icons/fc";
-import { CgProfile } from "react-icons/cg";
+import { CgProfile, CgHome } from "react-icons/cg";
 
 const hoverAnimation = {
     scale: 1.2,
@@ -29,7 +28,7 @@ const TabBar = () => {
         <ul>
             <motion.li whileHover={hoverAnimation}>
                 <NavLink style={isActive} end to={"/money-minder"}>
-                    <FcHome />
+                    <CgHome />
                 </NavLink>
             </motion.li>
             <motion.li whileHover={hoverAnimation}>

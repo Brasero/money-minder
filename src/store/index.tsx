@@ -5,13 +5,15 @@ import expenseSlice from "./Slice/expenseSlice.ts";
 import revenuSlice from "./Slice/revenuSlice.ts";
 import {saveMounth, saveStorage} from "../utils/localStorage.ts";
 import categorieExpenseMiddleware from "./middleware/categorieExpenseMiddleware.ts";
+import user from "./Slice/user.tsx";
 
 const store = configureStore({
     reducer: {
         saisie: saisieSlice.reducer,
         category: categorySlice.reducer,
         expense: expenseSlice.reducer,
-        revenu: revenuSlice.reducer
+        revenu: revenuSlice.reducer,
+        user
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware()

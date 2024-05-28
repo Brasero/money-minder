@@ -1,6 +1,7 @@
 import {ICategory} from "../Slice/categorySlice.ts";
 import {IExpense} from "../Slice/expenseSlice.ts";
 import {IRevenuState} from "../Slice/revenuSlice.ts";
+import {IUser} from "../Slice/user.tsx";
 
 export const selectSaisieValues = (state: any) => state.saisie;
 
@@ -21,3 +22,5 @@ export const selectTotalRevenue = (state: {revenu: IRevenuState}) => state.reven
 export const selectRevenu = (state: {revenu: IRevenuState}) => state.revenu.value;
 
 export const selectRevenuError = (state: {revenu: IRevenuState}) => state.revenu.error;
+
+export const selectUser = (state: {user: IUser}) => state.user

@@ -29,7 +29,7 @@ const Income: React.FC<IIncomeProps> = ({extended}: IIncomeProps) => {
     return (
             extended ?
                 <div className={'favoriteBank'}>
-                    <NavLink to={'/money-minder'} className={'link'}>
+                    <NavLink to={-1} className={'link'}>
                         <IoArrowBackSharp />
                     </NavLink>
                     <div className={'favoriteBank__header'}>
@@ -49,7 +49,7 @@ const Income: React.FC<IIncomeProps> = ({extended}: IIncomeProps) => {
                     </div>
                 </div>
                 :
-                <NavLink to={'/money-minder/revenu'} className={'favoriteBank'}>
+                <NavLink to={'/revenu'} className={'favoriteBank'}>
                     <div className={'favoriteBank__header'}>
                         <h1 className={"favoriteBank__header__name"}>Revenues</h1>
                         <h3 className="favoriteBank__header__owner">

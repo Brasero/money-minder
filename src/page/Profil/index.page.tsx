@@ -16,6 +16,7 @@ const ProfilPage: React.FC = () => {
 
   const dispatch = useAppDispatch()
   const user = useAppSelector(selectUser)
+  const birthdate = new Date(user?.dob?.date).toLocaleDateString("fr")
 
   useEffect(() => {
     dispatch(fetchUser())
@@ -35,7 +36,7 @@ const ProfilPage: React.FC = () => {
       </div>
       <div className="person">
         <div className="person__img">
-          <img src={user?.picture?.thumbnail} alt={"profil picture"}/>
+          <img src={user?.picture?.medium} alt={"profil picture"}/>
         </div>
         <div className="person__info">
           <div className="identity">
@@ -43,7 +44,7 @@ const ProfilPage: React.FC = () => {
             <span className="last">{user?.name?.last}</span>
           </div>
           <div className="dob">
-            <span className="date">{user?.dob?.date}</span>
+            <span className="date">née le {birthdate}</span>
             <span className="age">{user?.email}</span>
           </div>
           <div className="editButton">

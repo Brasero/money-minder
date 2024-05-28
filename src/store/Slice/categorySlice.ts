@@ -9,7 +9,6 @@ export interface ICategory {
     id: number;
     budget: number;
 }
-
 const categoryMaxId = (arr: Array<ICategory>) => {
     return arr.reduce((acc, current) => acc > current.id ? acc : current.id, 0)
 }

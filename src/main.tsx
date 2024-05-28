@@ -9,7 +9,7 @@ import ProvidePopUpContext from "./utils/context/popUpContext.tsx";
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
-        <Router>
+        <Router basename={'/money-minder'}>
             <Provider store={store}>
                 <ProvidePopUpContext>
                     <App />

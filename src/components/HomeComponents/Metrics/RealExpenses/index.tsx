@@ -39,7 +39,6 @@ const RealExpenses: React.FC = () => {
                     <h4 className={'realExpenses__part__header__title'}>Dépenses réelles</h4>
                 </div>
                 <div className={"realExpenses__part__chart"}>
-                    {/* todo: Graphique Donuts*/}
                     <DonutChart total={total} category={expensesByCat} />
                 </div>
                 <div className="realExpenses__part__amount">

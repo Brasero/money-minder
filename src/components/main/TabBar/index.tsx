@@ -27,12 +27,12 @@ const TabBar = () => {
     return (
         <ul>
             <motion.li whileHover={hoverAnimation}>
-                <NavLink style={isActive} end to={"/money-minder"}>
+                <NavLink style={isActive} end to={"/"}>
                     <CgHome />
                 </NavLink>
             </motion.li>
             <motion.li whileHover={hoverAnimation}>
-                <NavLink style={isActive} end to={"/money-minder/profile"}>
+                <NavLink style={isActive} end to={"/profile"}>
                     <CgProfile />
                 </NavLink>
             </motion.li>

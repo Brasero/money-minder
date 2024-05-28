@@ -17,10 +17,15 @@ const store = configureStore({
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware()
+            .prepend()
             .concat([
                 categorieExpenseMiddleware
             ])
 })
+
+export type AppStore = typeof store
+export type RootState = ReturnType<AppStore["getState"]>
+export type AppDispatch = AppStore["dispatch"]
 
 store.subscribe(() => {
     saveStorage(store.getState())

@@ -24,7 +24,7 @@
       .backButton {
         position: absolute;
         top: 50%;
-        left: 0;
+        left: 13px;
         transform: translateY(-50%);
         background: var(--primary-linear);
         color: white;
@@ -81,6 +81,7 @@
           font-size: 1.5rem;
           align-items: flex-start;
         }
+
         .dob {
           display: flex;
           flex-direction: column;
@@ -89,15 +90,40 @@
           font-size: .8rem;
           font-family: var(--primary-font);
         }
-      }//end &__info
+      }
 
-    .editButton {
-      button {
-        background: var(--primary-linear);
-        scale: .7;
+      //end &__info
+
+      .editButton {
+        padding: 0;
+        margin: 0;
+
+        button {
+          background: var(--primary-linear);
+          width: 140px;
+          height: 30px;
+          border-radius: 10px;
+          font-size: 1.3rem;
+        }
       }
     }
-    }//end .person
+
+    //end .person
+    .links {
+      min-width: 100vw;
+      display: flex;
+      justify-content: center;
+      padding: 150px 15px 15px;
+
+      &__list {
+        width: 100%;
+        background: whitesmoke;
+        border-radius: 50px;
+        height: 1000px;
+        position: unset;
+        box-shadow: -1px -1px 10px 1px rgba(0, 0, 0, 0.4);
+      }
+    }
   }
 
   //end .profil

@@ -44,12 +44,14 @@ const user = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchUser.pending, (state, action) => {
+      console.log(action)
       state.loadState = {
         state: "pending",
         message: "Chargement des infos utilisateurs"
       }
     })
         .addCase(fetchUser.rejected, (state,action) => {
+          console.log(action)
           state.loadState = {
             state: "error",
             message: "Une erreur est survenue lors du chargement des infos utilisateur"

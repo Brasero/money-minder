@@ -1,7 +1,7 @@
 import React from "react";
 import './income.scss';
 import Table from "./Table.tsx";
-import {NavLink} from "react-router-dom";
+import {NavLink, To, useNavigate} from "react-router-dom";
 import {displayNumber, normalizeNumber} from "../../../../utils/utils.ts";
 import {selectRevenues} from "../../../../store/Selector";
 import {useSelector} from "react-redux";
@@ -20,18 +20,22 @@ export interface IRevenu {
 const Income: React.FC<IIncomeProps> = ({extended}: IIncomeProps) => {
 
     const data: IRevenu[] = useSelector(selectRevenues)
+    const navigate = useNavigate()
 
     const totalRevenu = data.reduce((acc: number, current: IRevenu) => {
         return acc + normalizeNumber(current.amount)
     }, 0)
 
+    const goBack = ( ) => {
+        navigate(-1 as To, {replace: true})
+    }
 
     return (
             extended ?
                 <div className={'favoriteBank'}>
-                    <NavLink to={-1} className={'link'}>
+                    <div onClick={goBack} className={'link'}>
                         <IoArrowBackSharp />
-                    </NavLink>
+                    </div>
                     <div className={'favoriteBank__header'}>
                         <h1 className={"favoriteBank__header__name"}>Revenues</h1>
                         <h3 className="favoriteBank__header__owner">

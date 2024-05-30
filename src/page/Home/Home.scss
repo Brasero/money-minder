@@ -99,8 +99,8 @@
     &__items {
       display: grid;
       grid-template-areas:  "lg1 lg1 tall"
-                            "lg2 lg2 tall"
-                            "lg3 lg3 tall";
+                            "lg3 lg3 tall"
+                            "lg2 lg2 lg2";
       grid-gap: 15px;
       padding: 0;
       margin: 0;

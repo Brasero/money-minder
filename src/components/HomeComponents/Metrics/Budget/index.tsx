@@ -1,9 +1,10 @@
 import './budget.scss';
-import DonutChart from "./DonutChart.tsx";
 import {useSelector} from "react-redux";
 import {selectCategories} from "../../../../store/Selector";
 import {ICategory} from "../../../../store/Slice/categorySlice.ts";
 import {normalizeNumber} from "../../../../utils/utils.ts";
+import AgDonutChart from "../../../AgDonutChart";
+import {displayNumber} from "../../../../utils/utils.ts";
 
 const Budget = () => {
 
@@ -22,11 +23,11 @@ const Budget = () => {
                     <h4 className={'budget__part__header__title'}>Budget</h4>
                 </div>
                 <div className={"budget__part__chart"}>
-                    <DonutChart total={total} category={categories}/>
+                    <AgDonutChart items={categories} name={'budget'} />
                 </div>
                 <div className="budget__part__amount">
                     <span className="amount">
-                        {total} <span className="currency">€</span>
+                        {displayNumber(normalizeNumber(total))} <span className="currency">€</span>
                     </span>
                     <span className="separator"></span>
                 </div>

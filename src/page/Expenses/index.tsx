@@ -4,10 +4,9 @@ import {motion} from "framer-motion";
 import {pageVariant} from "../../utils/animation.tsx";
 import {useSelector} from "react-redux";
 import {selectExpenses} from "../../store/Selector";
-import {IoArrowBackSharp} from "react-icons/io5";
-import {NavLink} from "react-router-dom";
 import ExpenseItem from "./ExpenseItem";
 import {IExpense} from "../../store/Slice/expenseSlice.ts";
+import BackButton from "../../components/BackButton";
 
 const Expenses: React.FC = () => {
 
@@ -24,9 +23,7 @@ const Expenses: React.FC = () => {
     return (
         <motion.div className={"expenseContainer"} variants={pageVariant} animate={"visible"} exit={'exit'} initial={'hidden'}>
             <header className={'header'} id={'top'}>
-                <NavLink to={'/money-minder'} className={'link'}>
-                    <IoArrowBackSharp />
-                </NavLink>
+                <BackButton />
                 <h1 className={'title'}>Liste des dépenses</h1>
                <div className={'lexique'}>
                    <div>Date</div>

@@ -3,6 +3,7 @@ import {useSelector} from "react-redux";
 import {selectCategories, selectExpenses, selectTotalRevenue} from "../../../../store/Selector";
 import {displayNumber} from "../../../../utils/utils.ts";
 import {NavLink} from "react-router-dom";
+import {generatePath} from "../../../../routes/routeconfig.ts";
 
 const Tall = () => {
 
@@ -65,7 +66,7 @@ const Tall = () => {
                             )
                         })
                     }
-                    <NavLink to={"/money-minder/expenses#top"} className={'link'}>
+                    <NavLink to={generatePath("expense")} className={'link'}>
                         <div className={'footer'}>
                             Voir Plus {'>'}
                         </div>

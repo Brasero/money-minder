@@ -1,10 +1,10 @@
 import React from 'react';
 import './realExpense.scss';
-import DonutChart from "../Budget/DonutChart.tsx";
 import {useSelector} from "react-redux";
 import {selectExpenses} from "../../../../store/Selector";
 import {IExpense} from "../../../../store/Slice/expenseSlice.ts";
-import {normalizeNumber} from "../../../../utils/utils.ts";
+import {displayNumber, normalizeNumber} from "../../../../utils/utils.ts";
+import AgDonutChart from "../../../AgDonutChart";
 
 export interface IExpenseItem {
     name: string;
@@ -39,10 +39,11 @@ const RealExpenses: React.FC = () => {
                     <h4 className={'realExpenses__part__header__title'}>Dépenses réelles</h4>
                 </div>
                 <div className={"realExpenses__part__chart"}>
-                    <DonutChart total={total} category={expensesByCat} />
+                    <AgDonutChart items={expensesByCat} name={"dépenses"} />
                 </div>
                 <div className="realExpenses__part__amount">
                     <span className="amount">
+                        {displayNumber(normalizeNumber(total))} €
                     </span>
                     <span className="separator"></span>
                 </div>

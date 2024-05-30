@@ -11,7 +11,7 @@ interface IPopUpContext {
 
 const PopUpContext = createContext({} as IPopUpContext);
 
-const consumePopUpContext = () => {
+const ConsumePopUpContext = () => {
 
     const [isOpen, setIsOpen] = useState(false)
     const [popUp, setPopUp] = useState({} as ReactNode)
@@ -53,7 +53,7 @@ interface IProviderProps {
 
 const ProvidePopUpContext = ({children}: IProviderProps) => {
 
-    const context = consumePopUpContext()
+    const context = ConsumePopUpContext()
 
     return <PopUpContext.Provider value={context}>
         {children}

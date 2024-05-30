@@ -6,7 +6,7 @@
   width: calc(100% - 10px);
   background: var(--dark-linear);
   border-radius: 10px;
-  padding: 10px 0;
+  padding: 10px 15px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
   margin: 10px 0;
   color: var(--text-light);
@@ -41,13 +41,17 @@
       background: transparent;
       color: var(--text-dark);
       border-radius: 10px;
+      width: 100%;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
       padding: 0;
       border: none;
       border-collapse: collapse;
+
+
+
       tr {
         transition: all .1s ease-in-out;
-        &:nth-child(odd) {
+        &:nth-child(even) {
           background: var(--dark-linear);
           color: var(--text-light);
         }
@@ -58,7 +62,7 @@
           }
         }
 
-        &:nth-child(even) {
+        &:nth-child(odd) {
           background: var(--text-light);
           color: var(--text-dark);
         }
@@ -89,6 +93,39 @@
 
         th {
           text-transform: uppercase;
+        }
+      }
+      @media screen and (max-width: 450px) {
+        thead {
+          border: none;
+          clip: rect(0 0 0 0);
+          height: 1px;
+          margin: -1px;
+          overflow: hidden;
+          padding: 0;
+          position: absolute;
+          width: 1px;
+        }
+        tr {
+          border-bottom: 3px solid #ddd;
+          display: block;
+          margin-bottom: .625rem;
+          width: 100%;
+
+          td {
+            border-bottom: 1px solid #ddd;
+            display: block;
+            font-size: .8em;
+            text-align: right;
+            width: 100%;
+
+            &::before {
+              content: attr(data-label);
+              float: left;
+              font-weight: bold;
+              text-transform: uppercase;
+            }
+          }
         }
       }
     }

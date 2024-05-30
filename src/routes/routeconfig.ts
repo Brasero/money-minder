@@ -4,14 +4,32 @@ import Revenu from "../page/Revenu";
 import Expenses from "../page/Expenses";
 import React from "react";
 
-interface route {
-    name: string;
-    label: string;
-    path: string;
-    Element: React.FC;
-}
 
-const routes: Array<route> = [
+const routes: readonly [
+    {
+        path: "/";
+        Element: React.FC;
+        name: "home";
+        label: "Home"
+    },
+    {
+        path: "/profile";
+        Element: React.FC;
+        name: "profil";
+        label: "Profil"
+    },
+    {
+        path: "/revenu";
+        Element: React.FC;
+        name: "revenu";
+        label: "Revenu"
+    },
+    {
+        path: "/expenses";
+        Element: React.FC;
+        name: "expense";
+        label: "Expenses"
+    }] = [
     {
         name: 'home',
         label: "Home",
@@ -36,14 +54,18 @@ const routes: Array<route> = [
         path: "/expenses",
         Element: Expenses
     }
-]
+] as const
+
+const routesName = routes.map(route => route.name)
+
+type RouteName = typeof routesName[number]
 
 interface param {
     name: string;
     value: string;
 }
 
-export const generatePath = (name: string, params: Array<param> | null = null): string => {
+export const generatePath = (name: RouteName, params: Array<param> | null = null): string => {
 
     const route = routes.find(r => r.name === name)
 

@@ -1,8 +1,5 @@
 .profilContainer {
   width: 100%;
-  display: flex;
-  justify-content: center;
-
   .profil {
     height: 100%;
     display: flex;
@@ -16,27 +13,9 @@
     .header {
       display: flex;
       justify-content: center;
-      position: relative;
       width: 100%;
       align-items: center;
       height: 50px;
-
-      .backButton {
-        position: absolute;
-        top: 50%;
-        left: 13px;
-        transform: translateY(-50%);
-        background: var(--primary-linear);
-        color: white;
-        border-radius: 5px;
-
-        padding: 5px 5px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      //end .backButton
 
       &__title {
         font-family: var(--secondary-font);
@@ -122,7 +101,6 @@
         width: 100%;
         background: whitesmoke;
         border-radius: 50px;
-        height: 1000px;
         position: unset;
         box-shadow: -1px -1px 10px 1px rgba(0, 0, 0, 0.4);
       }

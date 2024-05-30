@@ -67,30 +67,32 @@ const Outgoing: React.FC = () => {
             </div>
             <div className="outgoing__container">
                 <table className="outgoing__table">
-                    <tbody>
+                    <thead>
                         <tr>
-                            <th>Catégorie</th>
-                            <th>Budget</th>
-                            <th>Dépenses réelles</th>
-                            <th>Réstant</th>
+                            <th scope={"col"}>Catégorie</th>
+                            <th scope={"col"}>Budget</th>
+                            <th scope={"col"}>Dépenses réelles</th>
+                            <th scope={"col"}>Réstant</th>
                         </tr>
-                        {data.map((spend, index) => {
-                            const difference = spend.budget - spend.real
-                            return (
-                                <tr className={'item'} key={index} onClick={() => openModifyPopUp(spend.id)}>
+                    </thead>
+                    <tbody>
+                    {data.map((spend, index) => {
+                        const difference = spend.budget - spend.real
+                        return (
+                            <tr className={'item'} key={index} onClick={() => openModifyPopUp(spend.id)}>
                                     <td>{spend.cat}</td>
-                                    <td>{displayNumber(spend.budget)} €</td>
-                                    <td>{displayNumber(spend.real)} €</td>
-                                    <td className={isNegative(difference) ? 'negative' : undefined}>{displayNumber(difference)} €</td>
+                                    <td data-label={"Budget"}>{displayNumber(spend.budget)} €</td>
+                                    <td data-label={"Dépenses réelles"}>{displayNumber(spend.real)} €</td>
+                                    <td data-label={"Réstant"} className={isNegative(difference) ? 'negative' : undefined}>{displayNumber(difference)} €</td>
                                 </tr>
                             )
                         })
                         }
                         <tr className={"last"}>
                             <td>Total</td>
-                            <td>{displayNumber(total.budget)} €</td>
-                            <td>{displayNumber(total.real)} €</td>
-                            <td className={isNegative(total.budget - total.real) ? 'negative' : undefined}>{displayNumber(total.budget - total.real)} €</td>
+                            <td data-label={"Budget"}>{displayNumber(total.budget)} €</td>
+                            <td data-label={"Dépenses réelles"}>{displayNumber(total.real)} €</td>
+                            <td data-label={"Réstant"} className={isNegative(total.budget - total.real) ? 'negative' : undefined}>{displayNumber(total.budget - total.real)} €</td>
                         </tr>
                     </tbody>
                 </table>

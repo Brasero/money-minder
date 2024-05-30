@@ -26,6 +26,11 @@
       margin: 0;
     }
 
+    &__chart {
+      height: 200px;
+      width: 200px;
+    }
+
     &__amount {
       display: flex;
       flex-direction: column;

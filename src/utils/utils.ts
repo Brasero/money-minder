@@ -35,3 +35,7 @@ export function joursRestants() {
 
     return joursDansLeMois - jourAujourdHui;
 }
+
+export function capitalize(word: string) {
+    return word[0].toUpperCase() + word.substring(1);
+}

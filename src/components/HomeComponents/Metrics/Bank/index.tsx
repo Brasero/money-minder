@@ -1,5 +1,4 @@
 import './Bank.scss';
-import Chart from "./chart.tsx";
 
 const Bank = () => {
     return (
@@ -15,9 +14,6 @@ const Bank = () => {
                     <span className="currency">€</span>
                     <span className="separator"></span>
                 </div>
-            </div>
-            <div className={'favoriteBank__chart'}>
-                <Chart />
             </div>
         </div>
     );

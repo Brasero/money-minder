@@ -1,0 +1,15 @@
+.backButton {
+  position: relative;
+  top: 15px;
+  left: 15px;
+  background: var(--primary-linear);
+  color: white;
+  border-radius: 5px;
+
+  width: fit-content;
+  height: fit-content;
+  padding: 5px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

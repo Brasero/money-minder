@@ -1,11 +1,13 @@
 import React, {ChangeEvent, FormEvent, useState} from "react";
 import './expenseUpdate.scss';
-import {useDispatch, useSelector} from "react-redux";
 import {selectCategories, selectExpenseById} from "../../../store/Selector";
 import Input from "../../SaisieComponent/Input";
 import {updateExpense} from "../../../store/Slice/expenseSlice.ts";
 import {usePopUpContext} from "../../../utils/context/popUpContext.tsx";
 import SuppressExpensePopUp from "./SuppressExpensePopUp";
+import {useAppDispatch, useAppSelector} from "../../../utils/hooks/storeHooks.ts";
+import useToast from "../../../utils/hooks/useToast.tsx";
+
 
 interface IExpenseUpdateProps {
     id: number;
@@ -13,10 +15,10 @@ interface IExpenseUpdateProps {
 
 const ExpenseUpdate: React.FC<IExpenseUpdateProps> = ({id}: IExpenseUpdateProps) => {
 
-    const dispatch = useDispatch()
-    const expense = useSelector(selectExpenseById(id))
-    const category = useSelector(selectCategories)
-
+    const dispatch = useAppDispatch()
+    const expense = useAppSelector(selectExpenseById(id))
+    const category = useAppSelector(selectCategories)
+    const toast = useToast()
     const {
         closePopUp,
         resetPopUp,
@@ -40,6 +42,7 @@ const ExpenseUpdate: React.FC<IExpenseUpdateProps> = ({id}: IExpenseUpdateProps)
             ...newValue,
             amount: parseFloat(newValue.amount.toString())
         }))
+        toast.success("Dépense modifiée.")
         resetPopUp()
     }
 

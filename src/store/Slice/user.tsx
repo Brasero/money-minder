@@ -27,6 +27,7 @@ export interface IUser {
 export const fetchUser = createAsyncThunk(
     "fetchUser",
     async () => {
+      //Todo : This will be replace by a proper call to money minder api when possible
       return (await axios.get("https://randomuser.me/api/")).data
     }
 )

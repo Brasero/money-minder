@@ -1,10 +1,10 @@
-import {useSelector} from "react-redux";
 import {selectTotalExpense, selectTotalRevenue} from "../../store/Selector";
 import {displayNumber, joursRestants} from "../../utils/utils.ts";
+import {useAppSelector} from "../../utils/hooks/storeHooks.ts";
 
 const HomeHeader = () => {
-    const totalRevenu = useSelector(selectTotalRevenue)
-    const totalExpenses = useSelector(selectTotalExpense)
+    const totalRevenu = useAppSelector(selectTotalRevenue)
+    const totalExpenses = useAppSelector(selectTotalExpense)
 
     //Nombre de jours restant avant la fin du mois
     const restant = joursRestants();

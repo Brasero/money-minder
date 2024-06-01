@@ -46,6 +46,17 @@ const revenuSlice = createSlice({
         changeRevenuValue(state, action) {
             state.value[action.payload.name] = action.payload.value
             state.error = ""
+        },
+        updateRevenu(state, action) {
+            state.revenues = state.revenues.map(revenu => {
+                if (revenu.id === action.payload.id) {
+                    return action.payload
+                }
+                return revenu
+            })
+        },
+        deleteRevenu(state, action) {
+            state.revenues = state.revenues.filter(revenu => revenu.id !== action.payload)
         }
     }
 })
@@ -53,6 +64,8 @@ const revenuSlice = createSlice({
 export const {
     addRevenu,
     changeRevenuValue,
+    updateRevenu,
+    deleteRevenu
 } = revenuSlice.actions
 
 export default revenuSlice

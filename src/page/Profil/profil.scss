@@ -35,10 +35,10 @@
       align-items: flex-start;
 
       &__img {
-        width: fit-content;
+        width: 70px;
         border-radius: 15px;
         overflow: hidden;
-        height: fit-content;
+        height: 70px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -46,6 +46,7 @@
         img {
           width: 100%;
           height: 100%;
+          object-fit: cover;
         }
       }
 

@@ -7,6 +7,7 @@ import {changeValue, resetValues} from "../../../store/Slice/saisieSlice.ts";
 import {addExpense} from "../../../store/Slice/expenseSlice.ts";
 import './saisie.scss';
 import {usePopUpContext} from "../../../utils/context/popUpContext.tsx";
+import useToast from "../../../utils/hooks/useToast.tsx";
 
 
 interface IExpenseFormProps {
@@ -17,6 +18,7 @@ const ExpenseForm: React.FC<IExpenseFormProps> = ({isPopUp = false}: IExpenseFor
     const dispatch = useDispatch()
     const values = useSelector(selectSaisieValues)
     const categories = useSelector(selectCategories)
+    const toast = useToast()
 
     const {
         resetPopUp
@@ -30,6 +32,7 @@ const ExpenseForm: React.FC<IExpenseFormProps> = ({isPopUp = false}: IExpenseFor
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         dispatch(addExpense({...values}))
+        toast.success("Dépense ajoutée.")
         dispatch(resetValues())
         isPopUp && resetPopUp()
     }
@@ -37,6 +40,7 @@ const ExpenseForm: React.FC<IExpenseFormProps> = ({isPopUp = false}: IExpenseFor
     const submitAgain = (e: any) => {
         e.preventDefault()
         dispatch(addExpense({...values}))
+        toast.success("Dépense ajoutée.")
         dispatch(resetValues())
     }
 

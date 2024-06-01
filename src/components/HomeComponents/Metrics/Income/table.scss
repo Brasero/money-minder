@@ -24,11 +24,19 @@
       display: flex;
       justify-content: space-between;
       flex-direction: row;
+      align-items: center;
 
       border-bottom: 1px solid #8b8b8b;
+      height: 50px;
+      transition: all .3s ease-in-out;
+
+      &:hover {
+        scale: 1.2;
+        cursor: pointer;
+      }
 
       td {
-        font-size: .9rem;
+        font-size: 1.2rem;
         font-family: var(--primary-font);
         font-weight: var(--bold-text);
         padding: 0 35px;

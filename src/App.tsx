@@ -1,4 +1,5 @@
 import './App.scss'
+import 'react-toastify/dist/ReactToastify.css';
 import {Routes, Route, useLocation} from "react-router-dom";
 import routes from "./routes/routeconfig.ts";
 import {AnimatePresence} from "framer-motion";
@@ -9,6 +10,7 @@ import FloatingButton from "./components/HomeComponents/FloatingButton";
 import PopUpContainer from "./components/HomeComponents/PopUpContainer";
 import {fetchUser} from "./store/Slice/user.tsx";
 import {useAppDispatch} from "./utils/hooks/storeHooks.ts";
+import {ToastContainer} from "react-toastify";
 
 
 function App() {
@@ -28,6 +30,7 @@ function App() {
 
     return (
         <main id={'app'}>
+            <ToastContainer position={"top-right"} />
             <div id={"page-container"}>
                 <AnimatePresence presenceAffectsLayout={false} mode={"wait"}>
                     <Routes location={location} key={location.pathname}>

@@ -5,6 +5,7 @@ import {selectExpenseById} from "../../../../store/Selector";
 import {usePopUpContext} from "../../../../utils/context/popUpContext.tsx";
 import ExpenseUpdate from "../index.tsx";
 import {deleteExpense} from "../../../../store/Slice/expenseSlice.ts";
+import useToast from "../../../../utils/hooks/useToast.tsx";
 
 interface ISuppressExpensePopUpProps {
     id: number;
@@ -13,13 +14,13 @@ interface ISuppressExpensePopUpProps {
 const SuppressExpensePopUp: React.FC<ISuppressExpensePopUpProps> = ({id}: ISuppressExpensePopUpProps) => {
 
     const expense = useSelector(selectExpenseById(id))
-
     const dispatch = useDispatch()
     const {
         definePopUp,
         resetPopUp,
         openPopUp
     } = usePopUpContext()
+    const toast = useToast()
 
 
     const onAbort = () => {
@@ -30,6 +31,7 @@ const SuppressExpensePopUp: React.FC<ISuppressExpensePopUpProps> = ({id}: ISuppr
 
     const onValidate = () => {
         dispatch(deleteExpense(id))
+        toast.success("Dépense supprimée.")
         resetPopUp()
     }
 

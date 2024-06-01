@@ -20,7 +20,7 @@ const Budget = () => {
         <div className={'budget'}>
             <div className="budget__part">
                 <div className="budget__part__header">
-                    <h4 className={'budget__part__header__title'}>Budget</h4>
+                    <h4 className={'budget__part__header__title'}>Budget total</h4>
                 </div>
                 <div className={"budget__part__chart"}>
                     <AgDonutChart items={categories} name={'budget'} />

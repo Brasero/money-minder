@@ -1,9 +1,10 @@
 import React, {ChangeEvent, useState} from "react";
 import './categoryForm.scss';
-import {useDispatch} from "react-redux";
 import {addCategory} from "../../../store/Slice/categorySlice.ts";
 import Input from "../Input";
 import {usePopUpContext} from "../../../utils/context/popUpContext.tsx";
+import {useAppDispatch} from "../../../utils/hooks/storeHooks.ts";
+import useToast from "../../../utils/hooks/useToast.tsx";
 
 
 interface ICategorySaisie {
@@ -17,8 +18,8 @@ interface ICategooryFormProps {
 }
 const CategoryForm: React.FC<ICategooryFormProps> = ({isPopUp = false}: ICategooryFormProps) => {
 
-    const dispatch = useDispatch()
-
+    const dispatch = useAppDispatch()
+    const toast = useToast()
     const initialState: ICategorySaisie = {
         name: '',
         value: '',
@@ -59,13 +60,14 @@ const CategoryForm: React.FC<ICategooryFormProps> = ({isPopUp = false}: ICategoo
             return
         }
         dispatch(addCategory({...state}))
+        toast.success("Budget ajouté.")
         setState({...initialState})
         isPopUp && resetPopUp()
     }
 
     return (
         <form className={"categoryForm"} onSubmit={handleSubmit}>
-            <h1 className={"title"}>Ajouter une catégorie</h1>
+            <h1 className={"title"}>Ajouter un budget</h1>
             <Input label={'Nom'} value={state.name} type={'text'} name={'name'} changeMethod={handleChange} />
             <Input label={'Budget (0€)'} name={'budget'} type={'number'} value={state.budget} changeMethod={handleChange} />
             <input className={'submit'} type={'submit'} value={'Ajouter'} />

@@ -1,0 +1,57 @@
+.incomeUpdate {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  gap: 40px;
+  position: relative;
+
+  .suppress {
+    background: red;
+    color: white !important;
+    border: none;
+    font-family: var(--primary-font);
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    border-radius: 15px;
+    position: absolute;
+    bottom: -30%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .title {
+    font-family: var(--secondary-font);
+    font-size: 2rem;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    justify-content: space-evenly;
+    align-items: center;
+
+    .buttonGroup {
+      display: flex;
+      width: 100%;
+      gap: 25px;
+      justify-content: center;
+
+      input {
+        position: unset;
+        transform: unset;
+      }
+
+      button {
+        width: 100%;
+        border: none;
+        border-radius: 25px;
+        font-family: var(--primary-font);
+        color: var(--text-dark);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+    }
+  }
+}

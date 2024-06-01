@@ -106,7 +106,7 @@ function FloatingButton() {
                 variants={tabVariant(3)}
                 onClick={() => handleNavClick('categorie')}
             >
-                Ajouter une catégorie
+                Ajouter un budget
             </motion.div>
             <motion.div
                 className={'navItem'}

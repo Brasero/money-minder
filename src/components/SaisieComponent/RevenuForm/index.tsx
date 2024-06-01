@@ -5,6 +5,7 @@ import {selectRevenu, selectRevenuError} from "../../../store/Selector";
 import {changeRevenuValue, addRevenu} from "../../../store/Slice/revenuSlice.ts";
 import {useSelector, useDispatch} from "react-redux";
 import {usePopUpContext} from "../../../utils/context/popUpContext.tsx";
+import useToast from "../../../utils/hooks/useToast.tsx";
 
 interface IRevenueFormProps {
     isPopUp: boolean
@@ -15,6 +16,7 @@ const RevenuForm: React.FC<IRevenueFormProps> = ({isPopUp = false}: IRevenueForm
     const dispatch = useDispatch();
     const data = useSelector(selectRevenu);
     const error = useSelector(selectRevenuError)
+    const toast = useToast()
     const {
         resetPopUp
     } = usePopUpContext()
@@ -26,6 +28,7 @@ const RevenuForm: React.FC<IRevenueFormProps> = ({isPopUp = false}: IRevenueForm
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         dispatch(addRevenu())
+        toast.success("Revenu ajouté.")
         isPopUp && resetPopUp()
     }
 

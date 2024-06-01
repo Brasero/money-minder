@@ -7,14 +7,22 @@ import {useEffect} from "react";
 import {checkIfStorageIsAtDate} from "./utils/localStorage.ts";
 import FloatingButton from "./components/HomeComponents/FloatingButton";
 import PopUpContainer from "./components/HomeComponents/PopUpContainer";
+import {fetchUser} from "./store/Slice/user.tsx";
+import {useAppDispatch} from "./utils/hooks/storeHooks.ts";
 
 
 function App() {
+
+    const dispatch = useAppDispatch()
 
     //Nettoyage du local storage en début de mois
     useEffect(() => {
         checkIfStorageIsAtDate()
     }, [])
+
+    useEffect(() => {
+        dispatch(fetchUser())
+    }, [dispatch]);
 
     const location = useLocation()
 

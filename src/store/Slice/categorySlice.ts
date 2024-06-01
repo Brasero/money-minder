@@ -26,7 +26,7 @@ const categorySlice = createSlice({
     reducers: {
         addCategory(state, action) {
             if (!state.find((cat: ICategory) =>  cat.name === action.payload.name)) {
-                state.push({...action.payload, id: categoryMaxId(state) + 1, budget: normalizeNumber(action.payload.budget)})
+                state.push({...action.payload, id: categoryMaxId(state) + 1, budget: normalizeNumber(action.payload.budget || 0)})
             }
         },
         updateCategory(state, action) {

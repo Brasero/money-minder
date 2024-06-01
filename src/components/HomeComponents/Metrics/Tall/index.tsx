@@ -9,6 +9,7 @@ const Tall = () => {
 
     const categories = useSelector(selectCategories)
     const budget = categories.reduce((acc: number, current) => {
+        console.log(current, acc)
         return acc + current.budget
     }, 0);
 
@@ -21,6 +22,7 @@ const Tall = () => {
     const moneyLeft =  budget > totalExpenses ? totalRevenu - budget : totalRevenu - totalExpenses
 
     const leftBudget: number = budget - totalExpenses;
+    console.log(budget)
     const percentSpent: number = ((totalExpenses*100) / budget) || 0;
     const isMinus = (number: number) => {
         return number <= 0 ? 'minus' : "plus"
@@ -73,7 +75,7 @@ const Tall = () => {
                     </NavLink>
                 </div>
                 <div className={'tall__details__footer'}>
-                <span className="tall__details__footer__text">Hors budget</span>
+                <span className="tall__details__footer__text">Réstant après budget</span>
                     <span className={`tall__details__footer__value ${isMinus(moneyLeft)}`}>{displayNumber(moneyLeft)} €</span>
                 </div>
             </div>

@@ -1,24 +1,19 @@
 // path : src/page/Profil/index.page.tsx
 
 import './profil.scss';
-import React, {useEffect} from "react";
+import React from "react";
 import {motion} from "framer-motion";
 import {pageVariant} from "../../utils/animation.tsx";
-import {fetchUser} from "../../store/Slice/user.tsx";
 import {selectUser} from "../../store/Selector";
-import {useAppDispatch, useAppSelector} from "../../utils/hooks/storeHooks.ts";
+import {useAppSelector} from "../../utils/hooks/storeHooks.ts";
 import BackButton from "../../components/BackButton";
 
 const ProfilPage: React.FC = () => {
 
-
-  const dispatch = useAppDispatch()
   const user = useAppSelector(selectUser)
   const birthdate = new Date(user?.dob?.date).toLocaleDateString("fr")
 
-  useEffect(() => {
-    dispatch(fetchUser())
-  }, [dispatch]);
+
 
   return <motion.div variants={pageVariant} initial={"hidden"} exit={"exit"} animate={"visible"}>
     <div className="profilContainer">

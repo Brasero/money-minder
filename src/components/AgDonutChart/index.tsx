@@ -20,7 +20,8 @@ const AgDonutChart: React.FC<IAgDonutChart> = ({items, name}) => {
 
     const formatter = ({value}: AgChartLegendLabelFormatterParams) => {
         const item = items.find(c => c.name === value)
-        return item ? `${capitalize(value)} ${item.budget}€` : capitalize(value)
+        const formatString = (string: string) => string.length > 11 ? string.substring(0, 11)+"..." : string
+        return item ? `${capitalize(formatString(value))} ${item.budget}€` : capitalize(value)
     }
 
     useEffect(() => {

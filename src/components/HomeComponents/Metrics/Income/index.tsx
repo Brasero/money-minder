@@ -1,12 +1,15 @@
 import React from "react";
 import './income.scss';
+import 'react-loading-skeleton/dist/skeleton.css'
 import Table from "./Table.tsx";
 import {NavLink} from "react-router-dom";
 import {displayNumber, normalizeNumber} from "../../../../utils/utils.ts";
-import {selectRevenues} from "../../../../store/Selector";
+import {selectRevenues, selectUser} from "../../../../store/Selector";
 import {useSelector} from "react-redux";
 import {generatePath} from "../../../../routes/routeconfig.ts";
 import BackButton from "../../../BackButton";
+import {useAppSelector} from "../../../../utils/hooks/storeHooks.ts";
+import Skeleton from "react-loading-skeleton";
 
 interface IIncomeProps {
     extended: boolean;
@@ -19,6 +22,8 @@ export interface IRevenu {
 }
 
 const Income: React.FC<IIncomeProps> = ({extended}: IIncomeProps) => {
+
+    const user = useAppSelector(selectUser)
 
     const data: IRevenu[] = useSelector(selectRevenues)
 
@@ -34,8 +39,8 @@ const Income: React.FC<IIncomeProps> = ({extended}: IIncomeProps) => {
                     <div className={'favoriteBank__header'}>
                         <h1 className={"favoriteBank__header__name"}>Revenues</h1>
                         <h3 className="favoriteBank__header__owner">
-                            <span className="name">Doe</span>
-                            <span className="lastname">John</span>
+                            <span className="name">{user.name?.first || <Skeleton />}</span>
+                            <span className="lastname">{user.name?.last || <Skeleton />}</span>
                         </h3>
                         <div className="favoriteBank__header__amount">
                             <span className="amount">{displayNumber(totalRevenu)}</span>
@@ -52,8 +57,8 @@ const Income: React.FC<IIncomeProps> = ({extended}: IIncomeProps) => {
                     <div className={'favoriteBank__header'}>
                         <h1 className={"favoriteBank__header__name"}>Revenues</h1>
                         <h3 className="favoriteBank__header__owner">
-                            <span className="name">Doe</span>
-                            <span className="lastname">John</span>
+                            <span className="name">{user.name?.first || <Skeleton />}</span>
+                            <span className="lastname">{user.name?.last || <Skeleton />}</span>
                         </h3>
                         <div className="favoriteBank__header__amount">
                             <span className="amount">{displayNumber(totalRevenu)}</span>

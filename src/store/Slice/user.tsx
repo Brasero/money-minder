@@ -19,7 +19,7 @@ export interface IUser {
     large: string;
   },
   loadState: {
-    state: "idle" | "pending" | "error";
+    state: "idle" | "pending" | "error" | "loaded";
     message: string;
   }
 }
@@ -65,7 +65,7 @@ const user = createSlice({
           state.email = u.email
           state.picture = u.picture
           state.loadState = {
-            state: 'idle',
+            state: 'loaded',
             message: ""
           }
         })
